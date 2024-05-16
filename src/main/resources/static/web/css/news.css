@@ -1,0 +1,229 @@
+.content {
+    margin-top: 20px;
+}
+
+.category {
+    background-color: #f5f5f5;
+    padding: 16px;
+    border-radius: 4px;
+    width: 100%;
+}
+
+.category.active {
+    height: auto;
+}
+
+.category h3 {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.list-menu {
+    list-style: none;
+    padding: 0;
+}
+
+.list-menu > li {
+    margin: 16px 0;
+    border-bottom: 1px dashed #ccc;
+    transition: all linear .2s;
+    cursor: pointer;
+}
+
+.list-menu > li:hover > a {
+    color: var(--primary-color);
+}
+
+.list-menu > li a {
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+.sub-list-menu {
+    padding: 0;
+    border-top: 1px dashed #e7e7e7;
+    display: none;
+}
+
+.sub-list-menu > li {
+    list-style: none;
+    position: relative;
+    border-bottom: 1px dashed #e7e7e7;
+    margin: 10px 0;
+    margin-left: 14px;
+}
+
+.sub-list-menu > li:hover {
+    color: var(--primary-color);
+}
+
+.list-menu > li .heading span {
+    font-size: 20px;
+}
+
+.list-menu > li:hover .heading a, 
+.list-menu > li:hover .heading span {
+    color: var(--primary-color);
+}
+
+.sub-list-menu > li:hover a {
+    color: var(--primary-color);
+}
+
+.sub-list-menu > li.active {
+    color: var(--primary-color);
+}
+
+.list-menu > li.active .heading a,
+.list-menu > li.active .heading span {
+    color: var(--primary-color);
+}
+
+.introduce {
+    padding-right: 30px;
+}
+
+.introduce .title {
+    background-color: #f5f5f5;
+    padding: 12px 20px;
+    font-size: 18px;
+    border-radius: 4px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Content */
+
+.content {
+    margin: 30px 30px 0 50px;
+    display: flex;
+    width: 96%;
+}
+
+.content .shop-name h3 {
+    font-size: 22px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.content .shop-name span {
+    font-size: 14px;
+    font-weight: 500;
+    margin: 0;
+    width: 80%;
+}
+
+.content .form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.content .form .address {
+    display: flex;
+    flex-direction: column;
+}
+
+.form .address .contact {
+    display: flex;
+    align-items: center;
+    margin: 4px 0;
+}
+
+.form .address .contact i {
+    margin-right: 10px;
+    width: 30px; 
+    padding: 6px;
+    text-align: center;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+}
+
+.form .address .contact p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.content .form .form-contact {
+    margin-top: 10px;
+} 
+
+.form .form-contact p {
+    font-size: 18px;
+    margin: 0;
+}
+
+.form .form-contact .information-form {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+}
+
+.form .form-contact .information-form input,
+.form .form-contact .information-form textarea {
+    outline: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin: 10px 0;
+    font-size: 14px;
+    padding: 8px 16px;
+    width: 100%; 
+}
+
+.form .form-contact .information-form .btn {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 20%;
+    background-color: var(--primary-color);
+    transition: all .2s;
+    margin-top: 10px; 
+}
+
+.form .form-contact .information-form .btn:hover {
+    color: #fff;
+    opacity: .9;
+    cursor: pointer;
+}
+
+.content .map {
+    margin: auto;
+}
+
+.content .box-news {
+    width: 100%;
+    display: flex;
+}
+
+.content .news-item img {
+    width: 100%;
+}
+
+.content .news-item .time {
+    margin-top: 10px;
+}
+
+.content .news-item .time i,
+.content .news-item .time p {
+    color: var(--text-color);
+}
+
+.content .news-item .time p {
+    padding-left: 10px;
+}
+
+.content .news-item h3 {
+    color: #000;
+    font-size: 18px;
+    margin-top: 4px;
+    transition: all linear .2s;
+}
+
+.content .news-item h3:hover {
+    color: var(--primary-color);
+}
+
+.content .news-item p {
+    font-size: 14px;
+    color: #000;
+}
+

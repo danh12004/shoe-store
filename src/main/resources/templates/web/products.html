@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sản phẩm</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" th:href="@{/web/css/style.css}">
+    <link rel="stylesheet" th:href="@{/web/css/product.css}">
+</head>
+<body>
+    <div class="main">
+        <div th:replace="web/fragments/header :: header"></div>
+
+        <div class="content">
+            <div class="container">
+                <div class="row">
+                    <div class="coupons">
+                        <div class="container">
+                            <div class="list-coupon">
+                                <div class="col-12 col-md-6 col-lg-4 col-xl-4 coupon-item">
+                                    <div class="coupon-item-inner">
+                                        <div class="coupon-item-right">
+                                            <div class="cp-top">
+                                                <div class="cp-top-title">
+                                                    <h3>Miễn phí vận chuyển</h3>
+                                                    <p>Đơn hàng từ 300k</p>
+                                                </div>
+                                                <div class="cp-top-detail">
+                                                    <p>Mã: <strong>SHOEFREESHIP18</strong></p>
+                                                    <p>HSD: 1/1/2024</p>
+                                                </div>
+                                            </div>
+                                            <div class="cp-bottom">
+                                                <div class="cp-bottom-btn">
+                                                    <button class="dis-copy-2" onclick="copyCouponCode('SHOEFREESHIP18')">Sao chép</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6 col-lg-4 col-xl-4 coupon-item">
+                                    <div class="coupon-item-inner">
+                                        <div class="coupon-item-right">
+                                            <div class="cp-top">
+                                                <div class="cp-top-title">
+                                                    <h3>Miễn phí vận chuyển</h3>
+                                                    <p>Đơn hàng từ 300k</p>
+                                                </div>
+                                                <div class="cp-top-detail">
+                                                    <p>Mã: <strong>SHOE18</strong></p>
+                                                    <p>HSD: 30/11/2024</p>
+                                                </div>
+                                            </div>
+                                            <div class="cp-bottom">
+                                                <div class="cp-bottom-btn">
+                                                    <button class="dis-copy-2" onclick="copyCouponCode('SHOE18')">Sao chép</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6 col-lg-4 col-xl-4 coupon-item">
+                                    <div class="coupon-item-inner">
+                                        <div class="coupon-item-right">
+                                            <div class="cp-top">
+                                                <div class="cp-top-title">
+                                                    <h3>Miễn phí vận chuyển</h3>
+                                                    <p>Đơn hàng từ 300k</p>
+                                                </div>
+                                                <div class="cp-top-detail">
+                                                    <p>Mã: <strong>SHOE20</strong></p>
+                                                    <p>HSD: 12/11/2023</p>
+                                                </div>
+                                            </div>
+                                            <div class="cp-bottom">
+                                                <div class="cp-bottom-btn">
+                                                    <button class="dis-copy-2" onclick="copyCouponCode('SHOE20')">Sao chép</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-3">
+                        <div class="row d-flex flex-wrap" style="width: 85%;">
+                            <div class="category">
+                                <div class="col-12">
+                                    <h3>Danh mục trang</h3>
+                                    <ul class="list-menu">
+                                        <li><a href="home.html">Trang chủ</a></li>
+                                        <li><a href="introduce.html">Giới thiệu</a></li>
+                                        <li class="d-flex flex-wrap flex-column">
+                                            <div class="heading d-flex justify-content-between align-items-center">
+                                                <a href="products.html">Sản phẩm</a>
+                                                <span>+</span>
+                                            </div>
+                                            <ul class="sub-list-menu">
+                                                <li><a href="">Giày Nike</a></li>
+                                                <li><a href="">Giày Adidas</a></li>
+                                                <li><a href="">Giày Puma</a></li>
+                                                <li><a href="">Giày Reebok</a></li>
+                                                <li><a href="">Giày New Balance</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="news.html">Tin tức</a></li>
+                                        <li><a href="contact.html">Liên hệ</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="category mt-4">
+                                <div class="col-12">
+                                    <h3>Hãng giày</h3>
+                                    <div class="input d-flex flex-column">
+                                        <div class="input-group">
+                                            <input type="checkbox" name="">
+                                            <label for="nike">Nike</label>
+                                        </div>
+                                        <div class="input-group">
+                                            <input type="checkbox" name="">
+                                            <label for="adidas">Adiadas</label>
+                                        </div>
+                                        <div class="input-group">
+                                            <input type="checkbox" name="">
+                                            <label for="puma">Puma</label>
+                                        </div>
+                                        <div class="input-group">
+                                            <input type="checkbox" name="">
+                                            <label for="reebok">Reebok</label>
+                                        </div>
+                                        <div class="input-group">
+                                            <input type="checkbox" name="">
+                                            <label for="new-balance">New Balance</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="category mt-4">
+                                <div class="col-12">
+                                    <h3>Size</h3>
+                                    <div class="input d-flex flex-column">
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <div class="input-group">
+                                                    <input type="checkbox" name="" id="nike">
+                                                    <label for="nike">36</label>
+                                                </div>
+                                                <div class="input-group">
+                                                    <input type="checkbox" name="" id="adidas">
+                                                    <label for="adidas">37</label>
+                                                </div>
+                                                <div class="input-group">
+                                                    <input type="checkbox" name="" id="puma">
+                                                    <label for="puma">38</label>
+                                                </div>
+                                                <div class="input-group">
+                                                    <input type="checkbox" name="" id="reebok">
+                                                    <label for="reebok">39</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="input-group">
+                                                    <input type="checkbox" name="">
+                                                    <label for="new-balance">40</label>
+                                                </div>
+                                                <div class="input-group">
+                                                    <input type="checkbox" name="">
+                                                    <label for="new-balance">41</label>
+                                                </div>
+                                                <div class="input-group">
+                                                    <input type="checkbox" name="">
+                                                    <label for="new-balance">42</label>
+                                                </div>
+                                                <div class="input-group">
+                                                    <input type="checkbox" name="" id="new-balance">
+                                                    <label for="new-balance">43</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="category mt-4">
+                                <div class="col-12">
+                                    <h3>Màu sắc</h3>
+                                    <div class="input d-flex">
+                                        <div class="box m-2" style="width: 23px; height: 23px; background-color: red; border-radius: 50%; cursor: pointer;"></div>
+                                        <div class="box m-2" style="width: 23px; height: 23px; background-color: orange; border-radius: 50%; cursor: pointer;"></div>
+                                        <div class="box m-2" style="width: 23px; height: 23px; background-color: blue; border-radius: 50%; cursor: pointer;"></div>
+                                        <div class="box m-2" style="width: 23px; height: 23px; background-color: grey; border-radius: 50%; cursor: pointer;"></div>
+                                        <div class="box m-2" style="width: 23px; height: 23px; background-color: black; border-radius: 50%; cursor: pointer;"></div>
+                                        <div class="box m-2" style="width: 23px; height: 23px; background-color: white; border-radius: 50%; cursor: pointer;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="category mt-4">
+                                <div class="col-12">
+                                    <h3>Chọn mức giá:</h3>
+                                    <div class="input d-flex flex-column">
+                                        <div class="input-group">
+                                            <input type="checkbox" name="" id="price-500">
+                                            <label for="price-500">Giá dưới 500.000đ</label>
+                                        </div>
+                                        <div class="input-group">
+                                            <input type="checkbox" name="" id="price-500-1000">
+                                            <label for="price-500-1000">500.000đ - 1.000.000đ</label>
+                                        </div>
+                                        <div class="input-group">
+                                            <input type="checkbox" name="" id="price-1000-1500">
+                                            <label for="price-1000-1500">1.000.000đ - 1.500.000đ</label>
+                                        </div>
+                                        <div class="input-group">
+                                            <input type="checkbox" name="" id="price-1500-2000">
+                                            <label for="price-1500-2000">1.500.000đ - 2.000.000đ</label>
+                                        </div>
+                                        <div class="input-group">
+                                            <input type="checkbox" name="" id="price-2000">
+                                            <label for="price-2000">Trên 2.000.000đ</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-9 introduce">
+                        <div class="title d-flex justify-content-between">
+                            <h3>Tất cả sản phẩm</h3>
+                            <div class="sort d-flex justify-content-center align-items-center">
+                                <p class="m-0">Sắp xếp theo</p>
+                                <select name="" id="">
+                                    <option value="">Mặc định</option>
+                                    <option value="">Giá tăng dần</option>
+                                    <option value="">Giá giảm dần</option>
+                                    <option value="">Mới nhất</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="mt-4">
+                            <div class="box-product">
+                                <div class="product">
+                                    <div class="row d-flex flex-wrap">
+                                        <div class="col-4 mt-2 d-flex justify-content-center">
+                                            <a href="productdetail.html">
+                                                <div class="new-product-item">
+                                                    <div class="product-img">
+                                                        <img th:src="@{/web/img/nike/nam/nike1.png}" alt="Product Image" class="original-image">
+                                                        <img th:src="@{/web/img/nike/nam/nike2.png}" alt="Product Image" class="new-image">
+                                                        <p class="discount">20%</p>
+                                                        <div class="icons">
+                                                            <div class="icon">
+                                                                <i class="fa-regular fa-heart"></i>
+                                                            </div>
+                                                            <div class="icon">
+                                                                <a href="productdetail.html"><i class="fa-solid fa-sliders"></i></a>
+                                                            </div>
+                                                            <div class="icon">
+                                                                <i class="fa-solid fa-expand" data-bs-toggle="modal" data-bs-target="#expand"></i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="product-details">
+                                                        <h2 class="manufacturer">Nike</h2>
+                                                        <h3 class="name">Nike Zoom Pegasus 33</h3>
+                                                        <p class="price">1,550,000 VNĐ</p>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="col-4 mt-2 d-flex justify-content-center">
+                                            <a href="productdetail.html">
+                                                <div class="new-product-item">
+                                                    <div class="product-img">
+                                                        <img th:src="@{/web/img/nike/nam/nike1.png}" alt="Product Image" class="original-image">
+                                                        <img th:src="@{/web/img/nike/nam/nike2.png}" alt="Product Image" class="new-image">
+                                                        <p class="discount">20%</p>
+                                                        <div class="icons">
+                                                            <div class="icon">
+                                                                <i class="fa-regular fa-heart"></i>
+                                                            </div>
+                                                            <div class="icon">
+                                                                <a href="productdetail.html"><i class="fa-solid fa-sliders"></i></a>
+                                                            </div>
+                                                            <div class="icon">
+                                                                <i class="fa-solid fa-expand" data-bs-toggle="modal" data-bs-target="#expand"></i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="product-details">
+                                                        <h2 class="manufacturer">Nike</h2>
+                                                        <h3 class="name">Nike Zoom Pegasus 33</h3>
+                                                        <p class="price">1,550,000 VNĐ</p>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="col-4 mt-2 d-flex justify-content-center">
+                                            <a href="productdetail.html">
+                                                <div class="new-product-item">
+                                                    <div class="product-img">
+                                                        <img th:src="@{/web/img/nike/nam/nike1.png}" alt="Product Image" class="original-image">
+                                                        <img th:src="@{/web/img/nike/nam/nike2.png}" alt="Product Image" class="new-image">
+                                                        <p class="discount">20%</p>
+                                                        <div class="icons">
+                                                            <div class="icon">
+                                                                <i class="fa-regular fa-heart"></i>
+                                                            </div>
+                                                            <div class="icon">
+                                                                <a href="productdetail.html"><i class="fa-solid fa-sliders"></i></a>
+                                                            </div>
+                                                            <div class="icon">
+                                                                <i class="fa-solid fa-expand" data-bs-toggle="modal" data-bs-target="#expand"></i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="product-details">
+                                                        <h2 class="manufacturer">Nike</h2>
+                                                        <h3 class="name">Nike Zoom Pegasus 33</h3>
+                                                        <p class="price">1,550,000 VNĐ</p>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="col-4 mt-2 d-flex justify-content-center">
+                                            <a href="productdetail.html">
+                                                <div class="new-product-item">
+                                                    <div class="product-img">
+                                                        <img th:src="@{/web/img/nike/nam/nike1.png}" alt="Product Image" class="original-image">
+                                                        <img th:src="@{/web/img/nike/nam/nike2.png}" alt="Product Image" class="new-image">
+                                                        <p class="discount">20%</p>
+                                                        <div class="icons">
+                                                            <div class="icon">
+                                                                <i class="fa-regular fa-heart"></i>
+                                                            </div>
+                                                            <div class="icon">
+                                                                <a href="productdetail.html"><i class="fa-solid fa-sliders"></i></a>
+                                                            </div>
+                                                            <div class="icon">
+                                                                <i class="fa-solid fa-expand" data-bs-toggle="modal" data-bs-target="#expand"></i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="product-details">
+                                                        <h2 class="manufacturer">Nike</h2>
+                                                        <h3 class="name">Nike Zoom Pegasus 33</h3>
+                                                        <p class="price">1,550,000 VNĐ</p>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="col-4 mt-2 d-flex justify-content-center">
+                                            <a href="productdetail.html">
+                                                <div class="new-product-item">
+                                                    <div class="product-img">
+                                                        <img th:src="@{/web/img/nike/nam/nike1.png}" alt="Product Image" class="original-image">
+                                                        <img th:src="@{/web/img/nike/nam/nike2.png}" alt="Product Image" class="new-image">
+                                                        <p class="discount">20%</p>
+                                                        <div class="icons">
+                                                            <div class="icon">
+                                                                <i class="fa-regular fa-heart"></i>
+                                                            </div>
+                                                            <div class="icon">
+                                                                <a href="productdetail.html"><i class="fa-solid fa-sliders"></i></a>
+                                                            </div>
+                                                            <div class="icon">
+                                                                <i class="fa-solid fa-expand" data-bs-toggle="modal" data-bs-target="#expand"></i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="product-details">
+                                                        <h2 class="manufacturer">Nike</h2>
+                                                        <h3 class="name">Nike Zoom Pegasus 33</h3>
+                                                        <p class="price">1,550,000 VNĐ</p>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div th:replace="web/fragments/footer :: footer"></div>
+
+        <div class="modal fade" id="expand" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" style="max-width: 70%;">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close" style="position: absolute; top: 10px; right: 10px;"></button>
+                        <div class="row mt-2">
+                            <div class="col-6 d-flex flex-column">
+                                <img th:src="@{/web/img/nike/nam/nike1.png}" alt="">
+                                <div class="list-img d-flex">
+                                    <div class="row mt-4">
+                                        <div class="col-3">
+                                            <img th:src="@{/web/img/nike/nam/nike1.png}" alt="" style="width: 100%;">
+                                        </div>
+                                        <div class="col-3">
+                                            <img th:src="@{/web/img/nike/nam/nike2.png}" alt="" style="width: 100%;">
+                                        </div>
+                                        <div class="col-3">
+                                            <img th:src="@{/web/img/nike/nam/nike1.png}" alt="" style="width: 100%;">
+                                        </div>
+                                        <div class="col-3">
+                                            <img th:src="@{/web/img/nike/nam/nike2.png}" alt="" style="width: 100%;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 mt-3">
+                                <h3 class="name" style="font-weight: bold;">Nike Zoom Pegasus 33</h3>
+                                <div class="infomation d-flex align-items-center">
+                                    <p style="font-size: 14px; margin: 0;">Thương hiệu: <span style="color: var(--primary-color);">Nike</span></p> 
+                                    <span style="padding: 0 20px;">|</span>
+                                    <p style="font-size: 14px; margin: 0;">Mã sản phẩm: <span style="color: var(--primary-color);">0648135642134</span></p>
+                                </div>
+                                <p class="price mt-3" style="font-weight: bold; font-size: 20px;">1,550,000 VNĐ</p>
+                                <div class="color">
+                                    <p style="margin: 0;">Màu sắc:</p>
+                                    <div class="list-color d-flex">
+                                        <div class="box m-2" style="width: 23px; height: 23px; background-color: red; border-radius: 50%; cursor: pointer;"></div>
+                                        <div class="box m-2" style="width: 23px; height: 23px; background-color: orange; border-radius: 50%; cursor: pointer;"></div>
+                                        <div class="box m-2" style="width: 23px; height: 23px; background-color: blue; border-radius: 50%; cursor: pointer;"></div>
+                                        <div class="box m-2" style="width: 23px; height: 23px; background-color: grey; border-radius: 50%; cursor: pointer;"></div>
+                                        <div class="box m-2" style="width: 23px; height: 23px; background-color: black; border-radius: 50%; cursor: pointer;"></div>
+                                        <div class="box m-2" style="width: 23px; height: 23px; background-color: white; border-radius: 50%; cursor: pointer;"></div>
+                                    </div>
+                                </div>
+                                <div class="quantity" style="margin: 10px 0; width: 130px; margin-right: 10px; position: relative;">
+                                    <p style="margin: 0;">Số lượng:</p>
+                                    <div class="input-number-product mt-3">
+                                        <button style="left: 0px; right: auto;" class="subtraction">-</button>
+                                        <input type="text" value="1">
+                                        <button class="add">+</button>
+                                    </div>
+                                </div>
+                                <button class="add-cart mt-3">Thêm vào giỏ hàng</button>
+                                <div class="promotion">
+                                    <div class="promotion-head d-flex align-items-center">
+                                        <i class="fa-solid fa-gift"></i>
+                                        <h3>Khuyến mãi và ưu đãi</h3>
+                                    </div>
+                                    <ul class="promotion-box">
+                                        <li>Đồng giá Ship toàn quốc 30.000đ</li>
+                                        <li>Hỗ trợ 100.000 phí ship cho đơn hàng từ 1.000.000đ</li>
+                                        <li>Miễn phí ship đơn hàng từ 2.000.000đ</li>
+                                        <li>Đổi trả trong 30 ngày nếu sản phẩm lỗi bất kì</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".content .category .list-menu > li .heading").click(function () {
+                var $currentHeading = $(this);
+                $currentHeading.parent().toggleClass("active");
+                var $subListMenu = $currentHeading.siblings('.sub-list-menu');
+                $subListMenu.slideToggle();
+                if ($currentHeading.parent().hasClass('active')) {
+                    $currentHeading.find('span').text('-');
+                } else {
+                    $currentHeading.find('span').text('+');
+                }
+            });
+        });
+
+        function copyCouponCode(couponCode) {
+            var textField = document.createElement('textarea');
+            textField.innerText = couponCode;
+            document.body.appendChild(textField);
+            textField.select();
+            document.execCommand('copy');
+            textField.remove();
+            var copyButton = event.target; 
+            copyButton.innerText = 'Đã lưu';
+            copyButton.disabled = true;
+            setTimeout(function () {
+                copyButton.innerText = 'Sao chép';
+                copyButton.disabled = false;
+            }, 3000);
+        }
+
+    </script>
+</body>
+</html>

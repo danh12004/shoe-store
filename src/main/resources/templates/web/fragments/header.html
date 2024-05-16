@@ -1,0 +1,154 @@
+<style>
+    .dropdown-menu {
+        right: 0 !important;
+        padding: 0 !important;
+    }
+</style>
+
+<div class="header" th:fragment="header" xmlns:th="http://www.thymeleaf.org">
+    <div class="topbar">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-6 contact">
+                    <span>Hotline: <a href="">1900 6789</a> </span>
+                    <span>Email: <a href="support@gmail.com">support@gmail.com</a> </span>
+                </div>
+                <div class="col-md-6 col-12 text-end" th:if="${user == null}">
+                    <div class="account">
+                        <a th:href="@{/login}">Đăng nhập</a>
+                        <a th:href="@{/register}">Đăng ký</a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-12 text-end" th:if="${user != null}">
+                    <div class="dropdown">
+                        <div class="nav-link dropdown-toggle" role="button" id="userDropdown" aria-haspopup="true" aria-expanded="false" style="cursor: pointer;">
+                            <img th:src="@{/assets/img/user2-160x160.jpg}" class="user-image" alt="User Image" style="width: 5%; border-radius: 50%;">
+                            <span class="d-none d-md-inline">User</span>
+                        </div>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                            <!-- Menu Footer-->
+                            <div class="user-footer">
+                                <div>
+                                    <a th:href="@{/profile}" class="btn btn-default btn-flat">Thông tin cá nhân</a>
+                                </div>
+                                <div>
+                                    <a th:href="@{/admin-logout}" class="btn btn-default btn-flat">Đăng xuất</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <script>
+                        document.addEventListener('DOMContentLoaded', function() {
+                            const dropdownToggle = document.querySelector('.dropdown-toggle');
+                            const dropdownMenu = document.querySelector('.dropdown-menu');
+
+                            dropdownToggle.addEventListener('click', function() {
+                                dropdownMenu.classList.toggle('show');
+                            });
+
+                            document.addEventListener('click', function(event) {
+                                if (!dropdownMenu.contains(event.target) && !dropdownToggle.contains(event.target)) {
+                                    dropdownMenu.classList.remove('show');
+                                }
+                            });
+                        });
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main-header">
+        <div class="box-header d-flex">
+            <div class="header-logo col-2">
+                <a href="home.html" class="logo">Logo</a>
+            </div>
+            <div class="header-nav col-8 d-flex justify-content-around">
+                <div class="nav-menu">
+                    <ul class="menu-list d-flex">
+                        <li><a href="home.html">TRANG CHỦ</a></li>
+                        <li><a href="introduce.html">GIỚI THIỆU</a></li>
+                        <li class="submenu">
+                            <a href="products.html">SẢN PHẨM</a>
+                        </li>
+                        <li><a href="news.html">TIN TỨC</a></li>
+                        <li><a href="contact.html">LIÊN HỆ</a></li>
+                    </ul>
+                </div>
+                <div class="flash-sale">
+                    <a href="#" onclick="scrollToFlashSale()">
+                        <i class="fa-solid fa-bolt"></i>
+                        <span>Flash sale</span>
+                    </a>
+                </div>
+            </div>
+            <div class="header-icons col-2">
+                <div class="icon favorites">
+                    <a href="favourite.html"><i class="fa-regular fa-heart"></i></a>
+                    <span class="favorite-quantity">0</span>
+                </div>
+                <div class="icon cart">
+                    <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
+                    <span class="cart-quantity">0</span>
+                    <div class="box-cart">
+                        <p>Sản phẩm</p>
+                        <ul class="list-cart">
+                            <li class="cart-item">
+                                <a href="">
+                                    <img src="" alt="">
+                                    <div class="item">
+                                        <p class="name">Giày Thể Thao Nam GTT23.4</p>
+                                        <p class="price">Giá: 1,300,000 VND</p>
+                                        <div class="quantity-item">
+                                            <span class="subtraction">-</span>
+                                            <span class="quantity-product">1</span>
+                                            <span class="add">+</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="cart-item">
+                                <a href="">
+                                    <img src="" alt="">
+                                    <div class="item">
+                                        <p class="name">Giày Thể Thao Nam GTT23.4</p>
+                                        <p class="price">Giá: 1,300,000 VND</p>
+                                        <div class="quantity-item">
+                                            <span class="subtraction">-</span>
+                                            <span class="quantity-product">1</span>
+                                            <span class="add">+</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="cart-item">
+                                <a href="">
+                                    <img src="" alt="">
+                                    <div class="item">
+                                        <p class="name">Giày Thể Thao Nam GTT23.4</p>
+                                        <p class="price">Giá: 1,300,000 VND</p>
+                                        <div class="quantity-item">
+                                            <span class="subtraction">-</span>
+                                            <span class="quantity-product">1</span>
+                                            <span class="add">+</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="total-money">
+                            <p>Tổng tiền: <span class="total">1.000.000VNĐ</span></p>
+                        </div>
+                        <div class="button">
+                            <button class="payment">Thanh toán</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="search d-flex align-items-center justify-content-center">
+            <input type="text" placeholder="Tìm kiếm sản phẩm">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+    </div>
+</div>

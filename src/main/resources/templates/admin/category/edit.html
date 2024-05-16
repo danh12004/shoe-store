@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/extras/spring-security6">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Thêm sản phẩm</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Sweet Alert -->
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.8/dist/sweetalert2.min.css" rel="stylesheet">
+    <!-- DataTables -->
+    <link rel="stylesheet" th:href="@{/assets/css/dataTables.bootstrap4.min.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/responsive.bootstrap4.min.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/buttons.bootstrap4.min.css}">
+    <!-- Theme style -->
+    <link rel="stylesheet" th:href="@{/assets/css/adminlte.min.css}">
+</head>
+<body class="hold-transition sidebar-mini">
+
+<div class="wrapper">
+
+    <div th:replace="admin/fragments/header :: header"></div>
+
+    <div th:replace="admin/fragments/menu :: menu"></div>
+
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1>Trang danh mục</h1>
+                    </div>
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active">Blank Page</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <!-- /.container-fluid -->
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <!-- left column -->
+                    <div class="col-lg-6">
+                        <!-- general form elements -->
+                        <div class="card card-primary">
+                            <div class="card-header">
+                                <h3 class="card-title">Quick Example</h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <!-- form start -->
+                            <form role="form" id="formSubmit" th:object="${category}">
+                                <input type="hidden" id="id" th:field="*{id}">
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <label for="categoryName">Tên danh mục</label>
+                                        <input type="text" class="form-control" id="categoryName" placeholder="Tên danh mục" th:field="*{categoryName}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="active">Trạng thái</label>
+                                        <div class="form-check">
+                                            <input id="active" type="radio" class="form-check-input" th:field="*{categoryStatus}" value="1">
+                                            <label class="form-check-label" for="active">Active</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input id="hidden" type="radio" class="form-check-input" th:field="*{categoryStatus}" value="0">
+                                            <label class="form-check-label" for="hidden">Hidden</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /.card-body -->
+
+                                <div class="card-footer">
+                                    <!-- Sử dụng th:if để kiểm tra xem trường "id" có giá trị không -->
+                                    <button type="submit" class="btn btn-primary" id="btnUpdate" th:if="${category.id != null}">Cập nhật sản phẩm</button>
+                                    <!-- Sử dụng th:unless để kiểm tra xem trường "id" có giá trị không -->
+                                    <button type="submit" class="btn btn-primary" id="btnAdd" th:unless="${category.id != null}">Thêm sản phẩm</button>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                    <!--/.col (left) -->
+                </div>
+                <!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </section>
+        <!-- /.content -->
+    </div>
+
+    <div th:replace="admin/fragments/footer :: footer"></div>
+
+</div>
+<!-- JQuery -->
+<script th:src="@{/assets/js/jquery.min.js}"></script>
+<!-- Bootstrap 4 -->
+<script th:src="@{/assets/js/bootstrap.bundle.min.js}"></script>
+<!-- DataTables  & Plugins -->
+<script th:src="@{/assets/js/jquery.dataTables.min.js}"></script>
+<script th:src="@{/assets/js/dataTables.bootstrap4.min.js}"></script>
+<script th:src="@{/assets/js/dataTables.responsive.min.js}"></script>
+<script th:src="@{/assets/js/responsive.bootstrap4.min.js}"></script>
+<script th:src="@{/assets/js/dataTables.buttons.min.js}"></script>
+<script th:src="@{/assets/js/buttons.bootstrap4.min.js}"></script>
+<script th:src="@{/assets/js/jszip.min.js}"></script>
+<script th:src="@{/assets/js/pdfmake.min.js}"></script>
+<script th:src="@{/assets/js/vfs_fonts.js}"></script>
+<script th:src="@{/assets/js/buttons.html5.min.js}"></script>
+<script th:src="@{/assets/js/buttons.print.min.js}"></script>
+<script th:src="@{/assets/js/buttons.colVis.min.js}"></script>
+<!-- AdminLTE App -->
+<script th:src="@{/assets/js/adminlte.min.js}"></script>
+<!-- Sweet Alert -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.8/dist/sweetalert2.all.min.js"></script>
+<!-- Page specific script -->
+<script th:inline="javascript">
+    /*<![CDATA[*/
+        var editCategoryURL = /*[[@{/admin/edit-category}]]*/ '';
+        var categoryAPI = /*[[@{/api/category}]]*/ '';
+        var categoryURL = /*[[@{/admin/category}]]*/ '';
+    /*]]>*/
+
+    function getToken(cookieName) {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            const [name, value] = cookie.split('=');
+            if (name === cookieName) {
+                return value;
+            }
+        }
+        return null;
+    }
+
+    $(function () {
+      $("#example1").DataTable({
+        "responsive": true, "lengthChange": false, "autoWidth": false,
+        "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+      }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+    });
+
+    $('#btnAdd').click(function (e) {
+        e.preventDefault();
+        var categoryName = $('#categoryName').val().trim();
+        if (categoryName === '') {
+            showSwal("Lỗi!", "Vui lòng nhập Tên danh mục.", "error", null);
+            return;
+        }
+        var data = {};
+        var formData = $('#formSubmit').serializeArray();
+        $.each(formData, function(_, kv) {
+            if (kv.name === 'categoryStatus') {
+                data[kv.name] = parseInt(kv.value);
+            } else {
+                data[kv.name] = kv.value;
+            }
+        });
+        addCategory(data);
+    });
+
+    var categoryName = $('#categoryName').val().trim();
+    var categoryStatus = $('input[name="categoryStatus"]:checked').val();
+
+    $('#btnUpdate').click(function (e) {
+        e.preventDefault();
+        var data = {};
+        var formData = $('#formSubmit').serializeArray();
+        var hasChanges = false;
+
+        $.each(formData, function(_, kv) {
+            if (kv.name === 'categoryStatus') {
+                data[kv.name] = parseInt(kv.value);
+            } else {
+                data[kv.name] = kv.value;
+            }
+            if ((kv.name === 'categoryName' && kv.value.trim() !== categoryName) || (kv.name === 'categoryStatus' && kv.value !== categoryStatus)) {
+                hasChanges = true;
+            }
+        });
+
+        if (!hasChanges) {
+            showSwal("Lỗi!", "Không có sự thay đổi để cập nhật.", "error", null);
+            return;
+        }
+
+        updateCategory(data);
+    });
+
+    function showSwal(title, text, icon, redirectURL) {
+        Swal.fire({
+            title: title,
+            text: text,
+            icon: icon
+        }).then((result) => {
+            if (result.isConfirmed && redirectURL) {
+                window.location.href = redirectURL;
+            }
+        });
+    }
+
+    function addCategory(data) {
+        $.ajax({
+            url: categoryAPI,
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify(data),
+            dataType: 'json',
+            headers: {
+                'Authorization': 'Bearer ' + getToken('jwt')
+            },
+            success: function (result) {
+                showSwal("Thành công!", "Thêm sản phẩm thành công.", "success", categoryURL);
+            },
+            error: function (error) {
+                showSwal("Lỗi!", "Thêm sản phẩm thất bại.", "error", null);
+            }
+        })
+    }
+
+    function updateCategory(data) {
+        var id = $('#id').val();
+        $.ajax({
+            url: categoryAPI + '/' + id,
+            type: 'PUT',
+            contentType: 'application/json',
+            data: JSON.stringify(data),
+            dataType: 'json',
+            headers: {
+                'Authorization': 'Bearer ' + getToken('jwt')
+            },
+            success: function (result) {
+                showSwal("Thành công!", "Cập nhật sản phẩm thành công.", "success", categoryURL);
+            },
+            error: function (error) {
+                showSwal("Lỗi!", "Thêm sản phẩm thất bại.", "error", editCategoryURL);
+            }
+        })
+    }
+</script>
+</body>
+</html>

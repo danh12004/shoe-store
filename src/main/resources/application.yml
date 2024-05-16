@@ -1,0 +1,21 @@
+server:
+  port: 8080
+
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+  datasource:
+    url: jdbc:mysql://localhost:3306/project
+    username: root
+    password: ""
+  servlet:
+    multipart:
+      max-file-size: 128KB
+      max-request-size: 128KB
+
+jwt:
+  signerKey: "hLrceGCF7Kh8LoXgmtrKpdYuL9NR3Rw7kfaic3lBAznqeNnRVWPl5LaXUUBQ6C3w5uTCM7RzPdbpe8l8ZWVmxLTOKfEm9a0zTeS2HeXDcVfcpX0Jq3RzbkfWIJk3gTlj"

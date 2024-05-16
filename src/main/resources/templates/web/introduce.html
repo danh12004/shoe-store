@@ -1,0 +1,163 @@
+    <!DOCTYPE html>
+    <html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Giới thiệu</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+        <link rel="stylesheet" th:href="@{/web/css/style.css}">
+        <link rel="stylesheet" th:href="@{/web/css/introduce.css}">
+    </head>
+    <body>
+        <div class="main">
+            <div th:replace="web/fragments/header :: header"></div>
+
+            <div class="content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-3">
+                            <div class="row d-flex flex-wrap" style="width: 85%;">
+                                <div class="category">
+                                    <div class="col-12">
+                                        <h3>Danh mục trang</h3>
+                                        <ul class="list-menu">
+                                            <li><a href="home.html">Trang chủ</a></li>
+                                            <li><a href="introduce.html">Giới thiệu</a></li>
+                                            <li class="d-flex flex-wrap flex-column">
+                                                <div class="heading d-flex justify-content-between align-items-center">
+                                                    <a href="products.html">Sản phẩm</a>
+                                                    <span>+</span>
+                                                </div>
+                                                <ul class="sub-list-menu">
+                                                    <li><a href="">Giày Nike</a></li>
+                                                    <li><a href="">Giày Adidas</a></li>
+                                                    <li><a href="">Giày Puma</a></li>
+                                                    <li><a href="">Giày Reebok</a></li>
+                                                    <li><a href="">Giày New Balance</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="news.html">Tin tức</a></li>
+                                            <li><a href="contact.html">Liên hệ</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="category mt-3">
+                                    <div class="col-12">
+                                        <h3>Danh mục trang</h3>
+                                        <ul class="list-menu">
+                                            <li><a href="home.html">Trang chủ</a></li>
+                                            <li><a href="introduce.html">Giới thiệu</a></li>
+                                            <li class="d-flex flex-wrap flex-column">
+                                                <div class="heading d-flex justify-content-between align-items-center">
+                                                    <a href="products.html">Sản phẩm</a>
+                                                    <span>+</span>
+                                                </div>
+                                                <ul class="sub-list-menu">
+                                                    <li><a href="">Giày Nike</a></li>
+                                                    <li><a href="">Giày Adidas</a></li>
+                                                    <li><a href="">Giày Puma</a></li>
+                                                    <li><a href="">Giày Reebok</a></li>
+                                                    <li><a href="">Giày New Balance</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="news.html">Tin tức</a></li>
+                                            <li><a href="contact.html">Liên hệ</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-9 introduce">
+                            <div class="title">Tin tức</div>
+                            <div class="mt-4">
+                                <div class="news row d-flex flex-wrap">
+                                    <div class="col-4 mb-4">
+                                        <div class="box-news">
+                                            <a href="" class="text-decoration-none">
+                                                <div class="news-item p-3">
+                                                    <img th:src="@{/web/img/user/user.png}" alt="News Image" class="img-fluid">
+                                                    <div class="time d-flex align-items-center">
+                                                        <i class="fa-regular fa-clock"></i>
+                                                        <p class="m-0">Thứ Bảy, 18/11/2023</p>
+                                                    </div>
+                                                    <h3>Phiên bản giày thể thao mới nhất</h3>
+                                                    <p>Khám phá các phiên bản giày thể thao hot nhất từ các thương hiệu hàng đầu, với thiết kế tiên tiến và công nghệ tiên tiến.</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-4 mb-4">
+                                        <div class="box-news">
+                                            <a href="" class="text-decoration-none">
+                                                <div class="news-item p-3">
+                                                    <img th:src="@{/web/img/user/user.png}" alt="News Image" class="img-fluid">
+                                                    <div class="time d-flex align-items-center">
+                                                        <i class="fa-regular fa-clock"></i>
+                                                        <p class="m-0">Thứ Bảy, 18/11/2023</p>
+                                                    </div>
+                                                    <h3>Vật liệu sáng tạo cho sự thoải mái tối đa</h3>
+                                                    <p>Khám phá giày thể thao được chế tác bằng chất liệu tiên tiến giúp xác định lại sự thoải mái. Từ đan thoáng khí đến đệm nâng cao, những đôi giày này nâng cao trải nghiệm đi bộ và chạy bộ của bạn.</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-4 mb-4">
+                                        <div class="box-news">
+                                            <a href="" class="text-decoration-none">
+                                                <div class="news-item p-3">
+                                                    <img th:src="@{/web/img/user/user.png}" alt="News Image" class="img-fluid">
+                                                    <div class="time d-flex align-items-center">
+                                                        <i class="fa-regular fa-clock"></i>
+                                                        <p class="m-0">Thứ Bảy, 18/11/2023</p>
+                                                    </div>
+                                                    <h3>Vật liệu sáng tạo cho sự thoải mái tối đa</h3>
+                                                    <p>Khám phá giày thể thao được chế tác bằng chất liệu tiên tiến giúp xác định lại sự thoải mái. Từ đan thoáng khí đến đệm nâng cao, những đôi giày này nâng cao trải nghiệm đi bộ và chạy bộ của bạn.</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-4 mb-4">
+                                        <div class="box-news">
+                                            <a href="" class="text-decoration-none">
+                                                <div class="news-item p-3">
+                                                    <img th:src="@{/web/img/user/user.png}" alt="News Image" class="img-fluid">
+                                                    <div class="time d-flex align-items-center">
+                                                        <i class="fa-regular fa-clock"></i>
+                                                        <p class="m-0">Thứ Bảy, 18/11/2023</p>
+                                                    </div>
+                                                    <h3>Vật liệu sáng tạo cho sự thoải mái tối đa</h3>
+                                                    <p>Khám phá giày thể thao được chế tác bằng chất liệu tiên tiến giúp xác định lại sự thoải mái. Từ đan thoáng khí đến đệm nâng cao, những đôi giày này nâng cao trải nghiệm đi bộ và chạy bộ của bạn.</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div th:replace="web/fragments/footer :: footer"></div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                $(".content .category .list-menu > li .heading").click(function () {
+                    var $currentHeading = $(this);
+                    $currentHeading.parent().toggleClass("active");
+                    var $subListMenu = $currentHeading.siblings('.sub-list-menu');
+                    $subListMenu.slideToggle();
+                    if ($currentHeading.parent().hasClass('active')) {
+                        $currentHeading.find('span').text('-');
+                    } else {
+                        $currentHeading.find('span').text('+');
+                    }
+                });
+            });
+        </script>
+    </body>
+    </html>

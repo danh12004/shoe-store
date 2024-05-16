@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liên hệ</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" th:href="@{/web/css/style.css}">
+    <link rel="stylesheet" th:href="@{/web/css/contact.css}">
+</head>
+<body>
+    <div class="main">
+        <div th:replace="web/fragments/header :: header"></div>
+
+        <div class="content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="shop-name mb-2">
+                            <h3>Sneaker Street</h3>
+                            <span>Với tâm huyết đặt "Hài lòng của khách hàng là ưu tiên hàng đầu," chúng tôi cam kết mang đến cho bạn những giá trị tốt nhất tại cửa hàng giày thể thao của chúng tôi.</span>
+                        </div>
+                        <div class="form">
+                            <div class="address">
+                                <div class="contact">
+                                    <i class="fa-solid fa-map-location-dot"></i>
+                                    <p>Địa chỉ: Nguyễn Văn Lượng, Gò Vấp, Thành phố Hồ Chí Minh, Việt Nam.</p>
+                                </div>
+                                <div class="contact">
+                                    <i class="fa-solid fa-mobile-screen-button"></i>
+                                    <p>0123456789</p>
+                                </div>
+                                <div class="contact">
+                                    <i class="fa-regular fa-envelope"></i>
+                                    <p>ndshop@gmail.com</p>
+                                </div>
+                            </div>
+                            <div class="form-contact">
+                                <p>Liên hệ với chúng tôi</p>
+                                <form action="#" class="information-form">
+                                    <input type="text" name="" placeholder="Họ và Tên">
+                                    <input type="email" placeholder="Email">
+                                    <input type="tel" placeholder="Số điện thoại*">
+                                    <textarea name="" id="" cols="30" rows="4" placeholder="Nội dung"></textarea>
+                                    <input type="button" value="Gửi liên hệ" class="btn">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 d-flex align-items-center">
+                        <div class="map">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.640710783735!2d1
+                            06.66688331084606!3d10.838783357995371!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1
+                            s0x317529a9430b2aaf%3A0x869d31ba96dfe6cb!2zMzUwIE5ndXnhu4VuIFbEg24gTMaw4bujbmcsIFBoxrDhu
+                            51uZyAxNiwgR8OyIFbhuqVwLCBUaMOgbmggcGjhu5EgSOG7kyBDaMOtIE1pbmgsIFZp4buHdCBOYW0!5e0!3m2!1
+                            svi!2s!4v1696148106732!5m2!1svi!2s" width="600" height="400" style="border:0;" allowfullscreen="" 
+                            loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div th:replace="web/fragments/footer :: footer"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</body>
+</html>

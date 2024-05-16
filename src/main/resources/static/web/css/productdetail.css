@@ -1,0 +1,237 @@
+.quantity button {
+    border: solid 1px #ddd; 
+    width: 30px; 
+    position: absolute; 
+    right: 0; 
+    top: 40px; 
+    text-align: center; 
+    height: 45px; 
+    line-height: 40px; 
+    cursor: pointer; 
+    background: initial; 
+    padding: initial
+}
+
+.quantity input {
+    width: 54%;
+    margin-left: 30px;
+    height: 45px; 
+    border: solid 1px #ddd; 
+    text-align: center; 
+    padding: 0px 20px;
+}
+
+.btn {
+    width: 100%;
+    padding: 8px 0;
+    border: none;
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    transition: all linear .2s;
+    border-radius: 4px;
+    margin: 0 20px;
+}
+
+.btn:hover {
+    opacity: .8;
+}
+
+.promotion {
+    border: 2px dashed var(--primary-color);
+    position: relative;
+}
+
+.promotion .promotion-head {
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 5px 10px;
+    color: var(--primary-color);
+    background: var(--white-color);
+    position: absolute;
+    top: -20px;
+}
+
+.promotion .promotion-head i {
+    font-size: 20px;
+}
+
+.promotion .promotion-head h3 {
+    font-size: 18px;
+    margin: 0 0 0 10px;
+}
+
+.promotion .promotion-box {
+    margin-top: 20px;
+}
+
+.promotion .promotion-box li {
+    margin: 10px 0;
+}
+
+.contact .share .icons .icon {
+    margin: 0 8px;
+}
+
+.contact .share .icons .icon a {
+    color: #000;
+}
+
+.contact .share .icons .icon i {
+    font-size: 24px;
+}
+
+.contact .share .icons .icon i:hover {
+    color: var(--primary-color);
+    cursor: pointer;
+}
+
+.support .description .head {
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+}
+
+.support .description .head p {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.support .description .head i {
+    cursor: pointer;
+}
+
+.support .description .body {
+    margin-top: 20px;
+}
+
+.related-product .heading-home {
+    margin-bottom: 20px;
+}
+
+.related-product .heading-home .site-animation {
+    text-align: center;
+}
+
+.related-product .heading-home .site-animation h2 {
+    font-size: 30px;
+    display: inline-block;
+    margin: 0;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 18px;
+    text-transform: uppercase;
+}
+
+.related-product .heading-home .site-animation h2::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0px;
+    width: 40px;
+    height: 3px;
+    background-color: var(--primary-color);
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.product .row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.product a {
+    text-decoration: none;
+}
+
+.product .new-product-item {
+    width: 80%;
+}
+
+.product .new-product-item .product-img {
+    width: 100%;
+    position: relative;
+}
+
+.product .new-product-item .product-img img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.product .new-product-item img.new-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.product .new-product-item:hover img.new-image {
+    opacity: 1;
+}
+
+.product .new-product-item .product-img .discount {
+    position: absolute;
+    top: 8%;
+    background-color: #000;
+    color: var(--white-color);
+    padding: 0 14px;
+    font-size: 14px;
+}
+
+.product .new-product-item .product-img .icons {
+    position: absolute;
+    top: 0;
+    right: 4%;
+    opacity: 0; 
+    transition: opacity 0.2s ease-in-out;
+}
+
+.product .new-product-item:hover .icons {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.product-img .icons .icon {
+    background-color: var(--white-color);
+    padding: 6px 10px;
+    margin: 6px 0;
+    border-radius: 6px;
+    transition: all linear .2s;
+}
+
+.product-img .icons .icon:hover {
+    background-color: var(--primary-color);
+    cursor: pointer;
+}
+
+.product-img .icons .icon:hover i {
+    color: var(--white-color);
+}
+
+.product-img .icons .icon a,
+.product-img .icons .icon i {
+    color: #000;
+}
+
+.product .new-product-item .product-details .manufacturer {
+    font-size: 14px;
+    color: var(--text-color);
+    text-transform: uppercase;
+    margin-top: 20px;
+}
+
+.product .new-product-item .product-details .name {
+    font-size: 16px;
+    transition: all linear .1s;
+}
+
+.product .new-product-item .product-details .name:hover {
+    color: var(--primary-color);
+    cursor: pointer;
+}
+
+.product .new-product-item .product-details .price {
+    font-size: 14px;
+    font-weight: bold;
+}

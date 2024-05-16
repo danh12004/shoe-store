@@ -1,0 +1,197 @@
+.content {
+    margin-top: 20px;
+}
+
+.category {
+    background-color: #f5f5f5;
+    padding: 16px;
+    border-radius: 4px;
+    width: 100%;
+}
+
+.category.active {
+    height: auto;
+}
+
+.category h3 {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.list-menu {
+    list-style: none;
+    padding: 0;
+}
+
+.list-menu > li {
+    margin: 16px 0;
+    border-bottom: 1px dashed #ccc;
+    transition: all linear .2s;
+    cursor: pointer;
+}
+
+.list-menu > li:hover > a {
+    color: var(--primary-color);
+}
+
+.list-menu > li a {
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+.sub-list-menu {
+    padding: 0;
+    border-top: 1px dashed #e7e7e7;
+    display: none;
+}
+
+.sub-list-menu > li {
+    list-style: none;
+    position: relative;
+    border-bottom: 1px dashed #e7e7e7;
+    margin: 10px 0;
+    margin-left: 14px;
+}
+
+.sub-list-menu > li:hover {
+    color: var(--primary-color);
+}
+
+.list-menu > li .heading span {
+    font-size: 20px;
+}
+
+.list-menu > li:hover .heading a, 
+.list-menu > li:hover .heading span {
+    color: var(--primary-color);
+}
+
+.sub-list-menu > li:hover a {
+    color: var(--primary-color);
+}
+
+.sub-list-menu > li.active {
+    color: var(--primary-color);
+}
+
+.list-menu > li.active .heading a,
+.list-menu > li.active .heading span {
+    color: var(--primary-color);
+}
+
+.introduce {
+    padding-right: 30px;
+}
+
+.introduce .title {
+    background-color: #f5f5f5;
+    padding: 12px 20px;
+    font-size: 18px;
+    border-radius: 4px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Content */
+.product .row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.product a {
+    text-decoration: none;
+}
+
+.product .new-product-item {
+    width: 80%;
+}
+
+.product .new-product-item .product-img {
+    width: 100%;
+    position: relative;
+}
+
+.product .new-product-item .product-img img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.product .new-product-item img.new-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.product .new-product-item:hover img.new-image {
+    opacity: 1;
+}
+
+.product .new-product-item .product-img .discount {
+    position: absolute;
+    top: 8%;
+    background-color: #000;
+    color: var(--white-color);
+    padding: 0 14px;
+    font-size: 14px;
+}
+
+.product .new-product-item .product-img .icons {
+    position: absolute;
+    top: 0;
+    right: 4%;
+    opacity: 0; 
+    transition: opacity 0.2s ease-in-out;
+}
+
+.product .new-product-item:hover .icons {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.product-img .icons .icon {
+    background-color: var(--white-color);
+    padding: 6px 10px; 
+    margin: 6px 0;
+    border-radius: 6px;
+    transition: all linear .2s;
+}
+
+.product-img .icons .icon:hover {
+    background-color: var(--primary-color);
+    cursor: pointer;
+}
+
+.product-img .icons .icon:hover i {
+    color: var(--white-color);
+}
+
+.product-img .icons .icon a,
+.product-img .icons .icon i {
+    color: #000;
+}
+
+.product .new-product-item .product-details .manufacturer {
+    font-size: 14px;
+    color: var(--text-color);
+    text-transform: uppercase;
+    margin-top: 20px;
+}
+
+.product .new-product-item .product-details .name {
+    font-size: 16px;
+    transition: all linear .1s;
+}
+
+.product .new-product-item .product-details .name:hover {
+    color: var(--primary-color);
+    cursor: pointer;
+}
+
+.product .new-product-item .product-details .price {
+    font-size: 14px;
+    font-weight: bold;
+}

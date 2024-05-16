@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi tiết sản phẩm</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" th:href="@{/web/css/style.css}">
+    <link rel="stylesheet" th:href="@{/web/css/productdetail.css}">
+</head>
+<body>
+    <div class="main">
+        <div th:replace="web/fragments/header :: header"></div>
+
+        <div class="content">
+            <div class="container">
+                <div class="row mt-2">
+                    <div class="col-6 d-flex flex-column">
+                        <img th:src="@{/web/img/nike/nam/nike1.png}" alt="">
+                        <div class="list-img d-flex">
+                            <div class="row mt-4">
+                                <div class="col-3">
+                                    <img th:src="@{/web/img/nike/nam/nike1.png}" alt="" style="width: 100%;">
+                                </div>
+                                <div class="col-3">
+                                    <img th:src="@{/web/img/nike/nam/nike2.png}" alt="" style="width: 100%;">
+                                </div>
+                                <div class="col-3">
+                                    <img th:src="@{/web/img/nike/nam/nike1.png}" alt="" style="width: 100%;">
+                                </div>
+                                <div class="col-3">
+                                    <img th:src="@{/web/img/nike/nam/nike2.png}" alt="" style="width: 100%;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 mt-3">
+                        <h3 class="name" style="font-weight: bold;">Nike Zoom Pegasus 33</h3>
+                        <div class="infomation d-flex align-items-center">
+                            <p style="font-size: 14px; margin: 0;">Thương hiệu: <span style="color: var(--primary-color);">Nike</span></p> 
+                            <span style="padding: 0 20px;">|</span>
+                            <p style="font-size: 14px; margin: 0;">Mã sản phẩm: <span style="color: var(--primary-color);">0648135642134</span></p>
+                        </div>
+                        <p class="price mt-3" style="font-weight: bold; font-size: 20px;">1,550,000 VNĐ</p>
+                        <div class="promotion mt-5">
+                            <div class="promotion-head d-flex align-items-center">
+                                <i class="fa-solid fa-gift"></i>
+                                <h3>Khuyến mãi và ưu đãi</h3>
+                            </div>
+                            <ul class="promotion-box">
+                                <li>Đồng giá Ship toàn quốc 30.000đ</li>
+                                <li>Hỗ trợ 100.000 phí ship cho đơn hàng từ 1.000.000đ</li>
+                                <li>Miễn phí ship đơn hàng từ 2.000.000đ</li>
+                                <li>Đổi trả trong 30 ngày nếu sản phẩm lỗi bất kì</li>
+                            </ul>
+                        </div>
+                        <div class="color mt-3">
+                            <p style="margin: 0;">Màu sắc:</p>
+                            <div class="list-color d-flex">
+                                <div class="box m-2" style="width: 23px; height: 23px; background-color: red; border-radius: 50%; cursor: pointer;"></div>
+                                <div class="box m-2" style="width: 23px; height: 23px; background-color: orange; border-radius: 50%; cursor: pointer;"></div>
+                                <div class="box m-2" style="width: 23px; height: 23px; background-color: blue; border-radius: 50%; cursor: pointer;"></div>
+                                <div class="box m-2" style="width: 23px; height: 23px; background-color: grey; border-radius: 50%; cursor: pointer;"></div>
+                                <div class="box m-2" style="width: 23px; height: 23px; background-color: black; border-radius: 50%; cursor: pointer;"></div>
+                                <div class="box m-2" style="width: 23px; height: 23px; background-color: white; border-radius: 50%; cursor: pointer;"></div>
+                            </div>
+                        </div>
+                        <div class="quantity" style="margin: 10px 0; width: 130px; margin-right: 10px; position: relative;">
+                            <p style="margin: 0;">Số lượng:</p>
+                            <div class="input-number-product mt-3">
+                                <button style="left: 0px; right: auto;" class="subtraction">-</button>
+                                <input type="text" value="1">
+                                <button class="add">+</button>
+                            </div>
+                        </div>
+                        <div class="button d-flex">
+                            <button class="btn mt-3">Thêm vào giỏ hàng</button>
+                            <button class="btn mt-3">Mua ngay</button>
+                        </div>
+                        <div class="contact mt-4">
+                            <p class="text-center m-0">Gọi đặt mua <span style="color: var(--primary-color); cursor: pointer;">1900 6789</span> </p>
+                            <div class="share text-center d-flex justify-content-center align-items-center mt-3">
+                                <p class="m-0" style="padding-right: 20px;">Chia sẽ ngay: </p>
+                                <div class="icons d-flex">
+                                    <div class="icon">
+                                        <a href=""><i class="fa-brands fa-facebook"></i></a>
+                                    </div>
+                                    <div class="icon">
+                                        <a href=""><i class="fa-brands fa-twitter"></i></a>
+                                    </div>
+                                    <div class="icon">
+                                        <a href=""><i class="fa-brands fa-instagram"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-5">
+                    <div class="support">
+                        <div class="description d-flex flex-column">
+                            <div class="head d-flex justify-content-between align-items-center">
+                                <p class="m-0">Mô tả sản phẩm</p>
+                                <i class="fa-solid fa-chevron-up"></i>
+                            </div>
+                            <div class="body">
+                                <p>
+                                    Nike Zoom Pegasus 33, với chất liệu da cao cấp, kết hợp sự đẹp mắt và độ bền. 
+                                    Đôi giày này không chỉ làm nổi bật phong cách thể thao, mà còn mang đến sự thoải 
+                                    mái và linh hoạt cho mọi bước chạy. Chất liệu đẳng cấp của Pegasus 33 không chỉ 
+                                    làm tăng vẻ ngoại hình sang trọng, mà còn đảm bảo độ bền cho những chặng đường dài. 
+                                    Đôi giày này là sự kết hợp hoàn hảo giữa thời trang và hiệu suất, là người bạn đồng 
+                                    hành đáng tin cậy cho những người yêu thể thao.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="description d-flex flex-column">
+                            <div class="head d-flex justify-content-between align-items-center">
+                                <p class="m-0">Chính sách giao hàng</p>
+                                <i class="fa-solid fa-chevron-up"></i>
+                            </div>
+                            <div class="body">
+                                <p>1. <strong>Giao hàng Toàn quốc:</strong> Chúng tôi phục vụ khách hàng trên khắp cả nước, đảm bảo rằng bạn có thể nhận được sản phẩm mong muốn ở bất kỳ đâu.</p>
+                                <p>2. <strong>Phí Giao hàng Cố định:</strong> Áp dụng một mức phí giao hàng cố định để giữ cho quy trình thanh toán của bạn đơn giản và rõ ràng.</p>
+                                <p>3. <strong>Miễn phí Giao hàng cho Đơn hàng Lớn:</strong> Đối với các đơn hàng với giá trị vượt quá một ngưỡng nhất định, chúng tôi cung cấp dịch vụ giao hàng miễn phí.</p>
+                                <p>4. <strong>Đổi trả Dễ dàng:</strong> Chính sách đổi trả linh hoạt giúp bạn yên tâm khi mua sắm. Nếu có bất kỳ vấn đề gì về sản phẩm, chúng tôi sẽ nhanh chóng hỗ trợ đổi trả.</p>
+                            </div>
+                        </div>
+                        <div class="description d-flex flex-column">
+                            <div class="head d-flex justify-content-between align-items-center">
+                                <p class="m-0">Chính sách đổi trả</p>
+                                <i class="fa-solid fa-chevron-up"></i>
+                            </div>
+                            <div class="body">
+                                <p>1. <strong>Thời Gian Đổi Trả Linh Hoạt:</strong> Chúng tôi cung cấp một khoảng thời gian hợp lý để bạn có thể kiểm tra và quyết định về sản phẩm. Nếu có bất kỳ vấn đề gì, bạn có thể yên tâm đổi trả trong khoảng thời gian đó.</p>
+                                <p>2. <strong>Điều Kiện Đổi Trả Dễ Dàng:</strong> Chúng tôi xác nhận việc đổi trả sản phẩm với điều kiện dễ dàng và linh hoạt, đảm bảo rằng sản phẩm phải ở trong tình trạng ban đầu và có các nhãn mác đầy đủ.</p>
+                                <p>3. <strong>Hỗ Trợ Nhanh Chóng:</strong> Đội ngũ hỗ trợ của chúng tôi luôn sẵn sàng giúp đỡ trong quá trình đổi trả. Bất kỳ câu hỏi hay vấn đề nào đều được giải quyết một cách nhanh chóng và hiệu quả.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-5">
+                    <div class="related-product">
+                        <div class="container d-flex flex-column">
+                            <div class="heading-home">
+                                <div class="site-animation">
+                                    <h2>Sản phẩm liên quan</h2>
+                                </div>
+                            </div>
+                            <div class="box-product">
+                                <div class="product">
+                                    <div class="row d-flex flex-wrap">
+                                        <div class="col-3 mt-2 d-flex justify-content-center">
+                                            <a href="">
+                                                <div class="new-product-item">
+                                                    <div class="product-img">
+                                                        <img th:src="@{/web/img/nike/nam/nike1.png}" alt="Product Image" class="original-image">
+                                                        <img th:src="@{/web/img/nike/nam/nike2.png}" alt="Product Image" class="new-image">
+                                                        <p class="discount">20%</p>
+                                                        <div class="icons">
+                                                            <div class="icon">
+                                                                <i class="fa-regular fa-heart"></i>
+                                                            </div>
+                                                            <div class="icon">
+                                                                <a href=""><i class="fa-solid fa-sliders"></i></a>
+                                                            </div>
+                                                            <div class="icon">
+                                                                <i class="fa-solid fa-expand"></i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="product-details">
+                                                        <h2 class="manufacturer">Nike</h2>
+                                                        <h3 class="name">Nike Zoom Pegasus 33</h3>
+                                                        <p class="price">1,550,000 VNĐ</p>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="col-3 mt-2 d-flex justify-content-center">
+                                            <a href="">
+                                                <div class="new-product-item">
+                                                    <div class="product-img">
+                                                        <img th:src="@{/web/img/nike/nam/nike1.png}" alt="Product Image" class="original-image">
+                                                        <img th:src="@{/web/img/nike/nam/nike2.png}" alt="Product Image" class="new-image">
+                                                        <p class="discount">20%</p>
+                                                        <div class="icons">
+                                                            <div class="icon">
+                                                                <i class="fa-regular fa-heart"></i>
+                                                            </div>
+                                                            <div class="icon">
+                                                                <a href=""><i class="fa-solid fa-sliders"></i></a>
+                                                            </div>
+                                                            <div class="icon">
+                                                                <i class="fa-solid fa-expand"></i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="product-details">
+                                                        <h2 class="manufacturer">Nike</h2>
+                                                        <h3 class="name">Nike Zoom Pegasus 33</h3>
+                                                        <p class="price">1,550,000 VNĐ</p>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="col-3 mt-2 d-flex justify-content-center">
+                                            <a href="">
+                                                <div class="new-product-item">
+                                                    <div class="product-img">
+                                                        <img th:src="@{/web/img/nike/nam/nike1.png}" alt="Product Image" class="original-image">
+                                                        <img th:src="@{/web/img/nike/nam/nike2.png}" alt="Product Image" class="new-image">
+                                                        <p class="discount">20%</p>
+                                                        <div class="icons">
+                                                            <div class="icon">
+                                                                <i class="fa-regular fa-heart"></i>
+                                                            </div>
+                                                            <div class="icon">
+                                                                <a href=""><i class="fa-solid fa-sliders"></i></a>
+                                                            </div>
+                                                            <div class="icon">
+                                                                <i class="fa-solid fa-expand"></i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="product-details">
+                                                        <h2 class="manufacturer">Nike</h2>
+                                                        <h3 class="name">Nike Zoom Pegasus 33</h3>
+                                                        <p class="price">1,550,000 VNĐ</p>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="col-3 mt-2 d-flex justify-content-center">
+                                            <a href="">
+                                                <div class="new-product-item">
+                                                    <div class="product-img">
+                                                        <img th:src="@{/web/img/nike/nam/nike1.png}" alt="Product Image" class="original-image">
+                                                        <img th:src="@{/web/img/nike/nam/nike2.png}" alt="Product Image" class="new-image">
+                                                        <p class="discount">20%</p>
+                                                        <div class="icons">
+                                                            <div class="icon">
+                                                                <i class="fa-regular fa-heart"></i>
+                                                            </div>
+                                                            <div class="icon">
+                                                                <a href=""><i class="fa-solid fa-sliders"></i></a>
+                                                            </div>
+                                                            <div class="icon">
+                                                                <i class="fa-solid fa-expand"></i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="product-details">
+                                                        <h2 class="manufacturer">Nike</h2>
+                                                        <h3 class="name">Nike Zoom Pegasus 33</h3>
+                                                        <p class="price">1,550,000 VNĐ</p>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div th:replace="web/fragments/footer :: footer"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.list-img img').click(function () {
+                var currentImage = $(this).attr('src');
+
+                $('.col-6 > img').attr('src', currentImage);
+            });
+
+            $('#expand').on('show.bs.modal', function (event) {
+                var triggerElement = $(event.relatedTarget);
+
+                if (!triggerElement.hasClass('list-img') && !triggerElement.parent().hasClass('list-img')) {
+                    var currentImage = triggerElement.attr('src');
+
+                    $('.col-6 > img').attr('src', currentImage);
+                }
+            });
+
+            $('.description .head i').click(function () {
+                $(this).toggleClass('fa-chevron-down fa-chevron-up');
+                $(this).closest('.description').find('.body').slideToggle();
+            });
+        });
+    </script>
+</body>
+</html>

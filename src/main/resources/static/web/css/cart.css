@@ -1,0 +1,134 @@
+.content {
+    margin-top: 30px;
+}
+
+.content h3 {
+    text-align: center;
+    font-size: 36px;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.table th, .table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.table th {
+    background-color: #f2f2f2;
+}
+
+.info {
+    display: flex;
+    align-items: center;
+}
+
+.info .img {
+    width: 26%;
+}
+
+.info .img img {
+    width: 100%;
+}
+
+.info p {
+    margin-left: 20px;
+}
+
+.quantity {
+    width: 130px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.quantity button {
+    border: solid 1px #ddd; 
+    width: 30px; 
+    position: absolute; 
+    right: 0; 
+    top: 0px; 
+    text-align: center; 
+    height: 45px; 
+    line-height: 40px; 
+    cursor: pointer; 
+    background: initial; 
+    padding: initial;
+    transition: all linear .2s;
+}
+
+.quantity button:hover {
+    color: var(--white-color);
+    background-color: var(--primary-color);
+}
+
+.quantity input {
+    width: 55%; 
+    height: 45px; 
+    border: solid 1px #ddd; 
+    text-align: center; 
+    padding: 0px 20px;
+    margin: 0 auto;
+}
+
+.order-detail {
+    margin-top: 20px;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+.order-detail .head {
+    font-size: 20px;
+    font-weight: bold;
+    border-bottom: 1px dashed #ddd;
+    padding: 0 0 6px;
+}
+
+.order-detail .body {
+    margin: 14px 0;
+    border-bottom: 1px dashed #ddd;
+}
+
+.order-detail .body .product .name {
+    font-size: 14px;
+    padding-right: 10px;
+}
+
+.order-detail .body .product .price {
+    font-size: 14px;
+    color: var(--primary-color);
+}
+
+.order-detail .total-money h3 {
+    font-size: 16px;
+}
+
+.order-detail .total-money p {
+    font-size: 16px; 
+    color: var(--primary-color);
+}
+
+.order-detail .button {
+    width: 100%;
+}
+
+.order-detail .button .payment {
+    width: 100%;
+    border: none;
+    background-color: var(--primary-color);
+    padding: 6px 0;
+    border-radius: 4px;
+    transition: all linear .2s;
+    color: #000;
+}
+
+.order-detail .button .payment:hover {
+    color: var(--white-color);
+}
