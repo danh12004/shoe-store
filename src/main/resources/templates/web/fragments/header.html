@@ -1,10 +1,3 @@
-<style>
-    .dropdown-menu {
-        right: 0 !important;
-        padding: 0 !important;
-    }
-</style>
-
 <div class="header" th:fragment="header" xmlns:th="http://www.thymeleaf.org">
     <div class="topbar">
         <div class="container">
@@ -37,23 +30,6 @@
                             </div>
                         </div>
                     </div>
-
-                    <script>
-                        document.addEventListener('DOMContentLoaded', function() {
-                            const dropdownToggle = document.querySelector('.dropdown-toggle');
-                            const dropdownMenu = document.querySelector('.dropdown-menu');
-
-                            dropdownToggle.addEventListener('click', function() {
-                                dropdownMenu.classList.toggle('show');
-                            });
-
-                            document.addEventListener('click', function(event) {
-                                if (!dropdownMenu.contains(event.target) && !dropdownToggle.contains(event.target)) {
-                                    dropdownMenu.classList.remove('show');
-                                }
-                            });
-                        });
-                    </script>
                 </div>
             </div>
         </div>
@@ -61,7 +37,7 @@
     <div class="main-header">
         <div class="box-header d-flex">
             <div class="header-logo col-2">
-                <a href="home.html" class="logo">Logo</a>
+                <a th:href="@{/home}" class="logo">Logo</a>
             </div>
             <div class="header-nav col-8 d-flex justify-content-around">
                 <div class="nav-menu">
@@ -69,7 +45,7 @@
                         <li><a href="home.html">TRANG CHỦ</a></li>
                         <li><a href="introduce.html">GIỚI THIỆU</a></li>
                         <li class="submenu">
-                            <a href="products.html">SẢN PHẨM</a>
+                            <a th:href="@{/product}">SẢN PHẨM</a>
                         </li>
                         <li><a href="news.html">TIN TỨC</a></li>
                         <li><a href="contact.html">LIÊN HỆ</a></li>
@@ -152,3 +128,20 @@
         </div>
     </div>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const dropdownToggle = document.querySelector('.dropdown-toggle');
+        const dropdownMenu = document.querySelector('.dropdown-menu');
+
+        dropdownToggle.addEventListener('click', function() {
+            dropdownMenu.classList.toggle('show');
+        });
+
+        document.addEventListener('click', function(event) {
+            if (!dropdownMenu.contains(event.target) && !dropdownToggle.contains(event.target)) {
+                dropdownMenu.classList.remove('show');
+            }
+        });
+    });
+</script>
