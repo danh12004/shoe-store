@@ -9,6 +9,29 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" th:href="@{/web/css/style.css}">
     <link rel="stylesheet" th:href="@{/web/css/home.css}">
+    <style>
+        .dropdown-menu {
+            position: absolute;
+            z-index: 1000;
+            display: none;
+            min-width: 10rem;
+            padding: .5rem 0;
+            margin-left: 72%;
+            font-size: 1rem;
+            color: #212529;
+            text-align: left;
+            list-style: none;
+            background-color: #fff;
+            background-clip: padding-box;
+            border: 1px solid rgba(0, 0, 0, .15);
+            border-radius: 0;
+        }
+
+        .user-footer a:focus {
+            outline: none;
+            box-shadow: none;
+        }
+    </style>
 </head>
 
 <body>
@@ -41,7 +64,7 @@
                     <i class="fa-solid fa-angle-right"></i>
                 </button>
             </div>
-            
+
             <div class="advantage">
                 <div class="container">
                     <div class="row">
@@ -76,7 +99,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="category">
                 <div class="container d-flex flex-column">
                     <div class="heading-home">
@@ -312,8 +335,8 @@
                     <div class="box-product">
                         <div class="product">
                             <div class="row">
-                                <div class="col-3 mt-2 d-flex justify-content-center">
-                                    <a href="productdetail.html">
+                                <div class="col-3 mt-2">
+                                    <a href="productdetail.html" class="d-flex justify-content-center">
                                         <div class="new-product-item">
                                             <div class="product-img">
                                                 <img th:src="@{web/img/nike/nam/nike1.png}" alt="Product Image" class="original-image">
@@ -324,10 +347,10 @@
                                                         <i class="fa-regular fa-heart"></i>
                                                     </div>
                                                     <div class="icon">
-                                                        <a href="productdetail.html"><i class="fa-solid fa-sliders"></i></a>
+                                                        <i class="fa-solid fa-sliders" data-bs-toggle="modal" data-bs-target="#expand"></i>
                                                     </div>
                                                     <div class="icon">
-                                                        <i class="fa-solid fa-expand" data-bs-toggle="modal" data-bs-target="#expand"></i>
+                                                        <i class="fa-solid fa-cart-plus"></i>
                                                     </div>
                                                 </div>
                                             </div>
@@ -339,8 +362,8 @@
                                         </div>
                                     </a>
                                 </div>
-                                <div class="col-3 mt-2 d-flex justify-content-center">
-                                    <a href="productdetail.html">
+                                <div class="col-3 mt-2">
+                                    <a href="productdetail.html" class="d-flex justify-content-center">
                                         <div class="new-product-item">
                                             <div class="product-img">
                                                 <img th:src="@{web/img/nike/nam/nike1.png}" alt="Product Image" class="original-image">
@@ -351,10 +374,10 @@
                                                         <i class="fa-regular fa-heart"></i>
                                                     </div>
                                                     <div class="icon">
-                                                        <a href="productdetail.html"><i class="fa-solid fa-sliders"></i></a>
+                                                        <i class="fa-solid fa-sliders" data-bs-toggle="modal" data-bs-target="#expand"></i>
                                                     </div>
                                                     <div class="icon">
-                                                        <i class="fa-solid fa-expand" data-bs-toggle="modal" data-bs-target="#expand"></i>
+                                                        <i class="fa-solid fa-cart-plus"></i>
                                                     </div>
                                                 </div>
                                             </div>
@@ -366,8 +389,8 @@
                                         </div>
                                     </a>
                                 </div>
-                                <div class="col-3 mt-2 d-flex justify-content-center">
-                                    <a href="productdetail.html">
+                                <div class="col-3 mt-2">
+                                    <a href="productdetail.html" class="d-flex justify-content-center">
                                         <div class="new-product-item">
                                             <div class="product-img">
                                                 <img th:src="@{web/img/nike/nam/nike1.png}" alt="Product Image" class="original-image">
@@ -378,10 +401,10 @@
                                                         <i class="fa-regular fa-heart"></i>
                                                     </div>
                                                     <div class="icon">
-                                                        <a href="productdetail.html"><i class="fa-solid fa-sliders"></i></a>
+                                                        <i class="fa-solid fa-sliders" data-bs-toggle="modal" data-bs-target="#expand"></i>
                                                     </div>
                                                     <div class="icon">
-                                                        <i class="fa-solid fa-expand" data-bs-toggle="modal" data-bs-target="#expand"></i>
+                                                        <i class="fa-solid fa-cart-plus"></i>
                                                     </div>
                                                 </div>
                                             </div>
@@ -393,8 +416,8 @@
                                         </div>
                                     </a>
                                 </div>
-                                <div class="col-3 mt-2 d-flex justify-content-center">
-                                    <a href="productdetail.html">
+                                <div class="col-3 mt-2">
+                                    <a href="productdetail.html" class="d-flex justify-content-center">
                                         <div class="new-product-item">
                                             <div class="product-img">
                                                 <img th:src="@{web/img/nike/nam/nike1.png}" alt="Product Image" class="original-image">
@@ -405,10 +428,10 @@
                                                         <i class="fa-regular fa-heart"></i>
                                                     </div>
                                                     <div class="icon">
-                                                        <a href="productdetail.html"><i class="fa-solid fa-sliders"></i></a>
+                                                        <i class="fa-solid fa-sliders" data-bs-toggle="modal" data-bs-target="#expand"></i>
                                                     </div>
                                                     <div class="icon">
-                                                        <i class="fa-solid fa-expand" data-bs-toggle="modal" data-bs-target="#expand"></i>
+                                                        <i class="fa-solid fa-cart-plus"></i>
                                                     </div>
                                                 </div>
                                             </div>
@@ -420,8 +443,8 @@
                                         </div>
                                     </a>
                                 </div>
-                                <div class="col-3 mt-2 d-flex justify-content-center">
-                                    <a href="productdetail.html">
+                                <div class="col-3 mt-2">
+                                    <a href="productdetail.html" class="d-flex justify-content-center">
                                         <div class="new-product-item">
                                             <div class="product-img">
                                                 <img th:src="@{web/img/nike/nam/nike1.png}" alt="Product Image" class="original-image">
@@ -432,10 +455,10 @@
                                                         <i class="fa-regular fa-heart"></i>
                                                     </div>
                                                     <div class="icon">
-                                                        <a href="productdetail.html"><i class="fa-solid fa-sliders"></i></a>
+                                                        <i class="fa-solid fa-sliders" data-bs-toggle="modal" data-bs-target="#expand"></i>
                                                     </div>
                                                     <div class="icon">
-                                                        <i class="fa-solid fa-expand" data-bs-toggle="modal" data-bs-target="#expand"></i>
+                                                        <i class="fa-solid fa-cart-plus"></i>
                                                     </div>
                                                 </div>
                                             </div>
@@ -451,8 +474,8 @@
                         </div>
                     </div>
                 </div>
-            </div>          
-            
+            </div>
+
             <div class="assess">
                 <div class="container d-flex flex-column">
                     <div class="heading-home">
@@ -468,8 +491,8 @@
                                 <img th:src="@{web/img/user/user.png}" alt="">
                                 <p class="name">Nguyễn Văn Nam</p>
                                 <p class="desc">
-                                    Shop bán giày này thực sự xuất sắc! Họ có một loạt các sản phẩm phong cách và đa dạng, 
-                                    phù hợp cho mọi sở thích và nhu cầu của bạn. Không chỉ vậy, chất lượng của các sản phẩm 
+                                    Shop bán giày này thực sự xuất sắc! Họ có một loạt các sản phẩm phong cách và đa dạng,
+                                    phù hợp cho mọi sở thích và nhu cầu của bạn. Không chỉ vậy, chất lượng của các sản phẩm
                                     ở đây cũng rất tốt, chắc chắn sẽ đáng đồng tiền mà bạn bỏ ra
                                 </p>
                             </div>
@@ -477,17 +500,17 @@
                                 <img th:src="@{web/img/user/user1.png}" alt="">
                                 <p class="name">Trần Hoàng Phát</p>
                                 <p class="desc">
-                                    Shop bán giày này thực sự ấn tượng! Tôi đã có cơ hội mua sắm ở đây và thấy rất hài lòng. 
-                                    Chất lượng của các sản phẩm rất tốt, và họ có một loạt các loại giày từ các thương hiệu 
-                                    nổi tiếng. Giá cả cũng hợp lý và cạnh tranh so với các cửa hàng khác. 
+                                    Shop bán giày này thực sự ấn tượng! Tôi đã có cơ hội mua sắm ở đây và thấy rất hài lòng.
+                                    Chất lượng của các sản phẩm rất tốt, và họ có một loạt các loại giày từ các thương hiệu
+                                    nổi tiếng. Giá cả cũng hợp lý và cạnh tranh so với các cửa hàng khác.
                                 </p>
                             </div>
                             <div class="blog">
                                 <img th:src="@{web/img/user/user2.png}" alt="">
                                 <p class="name">Lê Tuấn Minh</p>
                                 <p class="desc">
-                                    Nhân viên rất nhiệt tình, sẵn sàng tư vấn và giúp đỡ. Hơn nữa, họ có chính sách đổi/trả 
-                                    hàng linh hoạt, giúp tạo sự tin tưởng cho khách hàng. 
+                                    Nhân viên rất nhiệt tình, sẵn sàng tư vấn và giúp đỡ. Hơn nữa, họ có chính sách đổi/trả
+                                    hàng linh hoạt, giúp tạo sự tin tưởng cho khách hàng.
                                 </p>
                             </div>
                         </div>
@@ -579,7 +602,7 @@
                             <div class="col-6 mt-3">
                                 <h3 class="name" style="font-weight: bold;">Nike Zoom Pegasus 33</h3>
                                 <div class="infomation d-flex align-items-center">
-                                    <p style="font-size: 14px; margin: 0;">Thương hiệu: <span style="color: var(--primary-color);">Nike</span></p> 
+                                    <p style="font-size: 14px; margin: 0;">Thương hiệu: <span style="color: var(--primary-color);">Nike</span></p>
                                     <span style="padding: 0 20px;">|</span>
                                     <p style="font-size: 14px; margin: 0;">Mã sản phẩm: <span style="color: var(--primary-color);">0648135642134</span></p>
                                 </div>

@@ -525,7 +525,6 @@
 }
 
 .product .new-product-item .product-img {
-    width: 100%;
     position: relative;
 }
 
@@ -571,6 +570,9 @@
 }
 
 .product-img .icons .icon {
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
     background-color: var(--white-color);
     padding: 10px;
     margin: 6px 0;
@@ -587,7 +589,6 @@
     color: var(--white-color);
 }
 
-.product-img .icons .icon a,
 .product-img .icons .icon i {
     color: #000;
 }
@@ -600,6 +601,7 @@
 }
 
 .product .new-product-item .product-details .name {
+    color: var(--text-color);
     font-size: 16px;
     transition: all linear .1s;
 }
@@ -610,6 +612,7 @@
 }
 
 .product .new-product-item .product-details .price {
+    color: var(--text-color);
     font-size: 14px;
     font-weight: bold;
 }
