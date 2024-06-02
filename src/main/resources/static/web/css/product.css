@@ -183,11 +183,6 @@
     margin: 4px 0;
 }
 
-.category .input .input-group:hover label {
-    color: var(--primary-color);
-    cursor: pointer;
-}
-
 .category .input .input-group label {
     padding: 0 10px;
 }
@@ -402,7 +397,6 @@
 
 .product .new-product-item .product-img img {
     width: 100%;
-    height: auto;
     object-fit: cover;
     transition: opacity 0.3s ease-in-out;
 }
@@ -443,8 +437,8 @@
 
 .product-img .icons .icon {
     display: flex;
-    align-items: center; 
-    justify-content: center; 
+    align-items: center;
+    justify-content: center;
     background-color: var(--white-color);
     padding: 10px;
     margin: 6px 0;

@@ -11,6 +11,8 @@ import com.example.project.service.IProductService;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -79,5 +81,25 @@ public class ProductService implements IProductService {
         for (String id : ids) {
             productRepository.deleteById(id);
         }
+    }
+
+    @Override
+    public Page<ProductResponse> getAllPaged(Pageable pageable) {
+        Page<Product> productPage = productRepository.findAll(pageable);
+        return productPage.map(product -> {
+            ProductResponse productResponse = productMapper.toProductResponse(product);
+            productResponse.setCategoryName(product.getCategory().getCategoryName());
+            return productResponse;
+        });
+    }
+
+    @Override
+    public Page<ProductResponse> getProductByCategoryNamePaged(Pageable pageable, String categoryName) {
+        Page<Product> productPage = productRepository.findByCategory_CategoryName(categoryName, pageable);
+        return productPage.map(product -> {
+            ProductResponse productResponse = productMapper.toProductResponse(product);
+            productResponse.setCategoryName(product.getCategory().getCategoryName());
+            return productResponse;
+        });
     }
 }

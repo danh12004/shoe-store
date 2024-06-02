@@ -1,6 +1,8 @@
 package com.example.project.service.impl;
 
 import com.example.project.service.StorageService;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.UrlResource;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -24,7 +26,7 @@ public class FileSystemStorageService implements StorageService {
         try {
             Files.createDirectories(rootLocation);
         } catch (Exception e) {
-            e.printStackTrace();
+            throw new RuntimeException("Could not initialize storage", e);
         }
     }
 
@@ -41,6 +43,20 @@ public class FileSystemStorageService implements StorageService {
         }
         catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    public Resource loadAsResource(String filename) {
+        try {
+            Path file = rootLocation.resolve(filename);
+            Resource resource = new UrlResource(file.toUri());
+            if (resource.exists() || resource.isReadable()) {
+                return resource;
+            } else {
+                throw new RuntimeException("FAIL!");
+            }
+        } catch (Exception e) {
+            throw new RuntimeException("FAIL!", e);
         }
     }
 }

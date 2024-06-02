@@ -43,9 +43,14 @@ public class UserService implements IUserService {
 
         HashSet<Role> userRoles = new HashSet<>();
 
-        if (!request.getRole().isEmpty()) {
+        Role defaultRole = roleRepository.findByName("USER");
+        userRoles.add(defaultRole);
+
+        if (!request.getRole().equals("USER")) {
             Role role = roleRepository.findByName(request.getRole());
-            userRoles.add(role);
+            if (role != null) {
+                userRoles.add(role);
+            }
         }
 
         user.setRoles(userRoles);

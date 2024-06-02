@@ -21,5 +21,5 @@ public class UserCreateRequest {
     String email;
     String phoneNumber;
     Boolean enable = true;
-    String role = "USER";
+    String role;
 }

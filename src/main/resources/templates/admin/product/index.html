@@ -165,6 +165,18 @@
     var categoryURL = /*[[@{/admin/product}]]*/ '';
     /*]]>*/
 
+    function getToken(cookieName) {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            const [name, value] = cookie.split('=');
+            if (name === cookieName) {
+                return value;
+            }
+        }
+        return null;
+    }
+
     $(document).ready(function () {
         $('input[type="checkbox"]').change(function () {
             var checkboxes = $('input[type="checkbox"]');
@@ -200,6 +212,9 @@
                             type: 'DELETE',
                             data: JSON.stringify(selectedItems),
                             contentType: 'application/json',
+                            headers: {
+                                'Authorization': 'Bearer ' + getToken('jwt')
+                            },
                             success: function (response) {
                                 Swal.fire({
                                     title: "Xóa thành công!",
