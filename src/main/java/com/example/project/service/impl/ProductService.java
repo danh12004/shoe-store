@@ -102,4 +102,16 @@ public class ProductService implements IProductService {
             return productResponse;
         });
     }
+
+    @Override
+    public Page<ProductResponse> searchProduct(Pageable pageable, String keyword) {
+        Page<Product> products = productRepository.searchProduct(keyword, pageable);
+        return products.map(productMapper::toProductResponse);
+    }
+
+    @Override
+    public List<ProductResponse> searchProduct(String query) {
+        List<Product> products = productRepository.findByProductNameContainingIgnoreCase(query);
+        return products.stream().map(productMapper::toProductResponse).toList();
+    }
 }

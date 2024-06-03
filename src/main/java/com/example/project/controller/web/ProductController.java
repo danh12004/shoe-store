@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
@@ -31,13 +32,17 @@ public class ProductController {
                           @RequestParam(defaultValue = "1") int page,
                           @RequestParam(defaultValue = "9") Integer size,
                           @RequestParam(required = false) String brand,
+                          @RequestParam(required = false) String keyword,
                           Model model) {
         Page<ProductResponse> productResponsePage;
+        Pageable pageable = PageRequest.of(page - 1, size);
         List<CategoryResponse> categoryResponses = categoryService.getAll();
         if (brand != null && !brand.isEmpty()) {
-            productResponsePage = productService.getProductByCategoryNamePaged(PageRequest.of(page - 1, size), brand);
+            productResponsePage = productService.getProductByCategoryNamePaged(pageable, brand);
+        } else if (keyword != null && !keyword.isEmpty()) {
+            productResponsePage = productService.searchProduct(pageable, keyword);
         } else {
-            productResponsePage = productService.getAllPaged(PageRequest.of(page - 1, size));
+            productResponsePage = productService.getAllPaged(pageable);
         }
         model.addAttribute("user", userDetails);
         model.addAttribute("products", productResponsePage);

@@ -17,4 +17,6 @@ public interface IProductService {
     void delete(String[] ids);
     Page<ProductResponse> getAllPaged(Pageable pageable);
     Page<ProductResponse> getProductByCategoryNamePaged(Pageable pageable, String categoryName);
+    Page<ProductResponse> searchProduct(Pageable pageable, String keyword);
+    List<ProductResponse> searchProduct(String query);
 }

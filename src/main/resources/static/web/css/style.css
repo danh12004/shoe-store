@@ -350,28 +350,59 @@ body {
     padding: 6px 20px 20px;
 }
 
-.main-header .search {
+.header .search {
     padding: 0 10px 10px;
     position: relative;
 }
 
-.main-header .search input {
+.header .search input {
     outline: none;
-    padding: 8px 18px;
+    padding: 6px 18px;
     width: 36%;
-    border-radius: 20px;
     border: 1px solid #ccc;
     font-size: 14px;
 }
 
-.main-header .search i {
+.header .search i {
     cursor: pointer;
     position: absolute;
     font-size: 18px;
-    right: 480px;
-    padding: 10px 18px 10px 10px;
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
+    padding: 10px;
+    right: 496px;
+    top: 0px;
+}
+
+.search-results {
+    position: absolute;
+    top: calc(22% + 12px);
+    left: calc(28% + 50px);
+    width: calc(35% + 7px);
+    background-color: white;
+    border: none;
+    max-height: 194px;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+.has-content {
+    border: 1px solid #ccc;
+}
+
+.search-results ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.search-results li,
+ .search-results p {
+    padding: 4px 10px;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.search-results li:hover {
+    background-color: #f0f0f0;
 }
 
 .footer {
