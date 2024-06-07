@@ -161,8 +161,8 @@
     });
 
      /*<![CDATA[*/
-    var categoryAPI = /*[[@{/api/product}]]*/ '';
-    var categoryURL = /*[[@{/admin/product}]]*/ '';
+    var productAPI = /*[[@{/api/admin/product}]]*/ '';
+    var productURL = /*[[@{/admin/product}]]*/ '';
     /*]]>*/
 
     function getToken(cookieName) {
@@ -208,7 +208,7 @@
                 }).then((result) => {
                     if (result.isConfirmed) {
                         $.ajax({
-                            url: categoryAPI,
+                            url: productAPI,
                             type: 'DELETE',
                             data: JSON.stringify(selectedItems),
                             contentType: 'application/json',
@@ -221,7 +221,7 @@
                                     text: "Danh mục đã được xóa.",
                                     icon: "success"
                                 }).then(() => {
-                                    window.location.href = categoryURL;
+                                    window.location.href = productURL;
                                 });
                             },
                             error: function (xhr, status, error) {
@@ -230,7 +230,7 @@
                                     text: "Đã xảy ra lỗi.",
                                     icon: "error"
                                 }).then(() => {
-                                    window.location.href = categoryURL;
+                                    window.location.href = productURL;
                                 });
                             }
                         });

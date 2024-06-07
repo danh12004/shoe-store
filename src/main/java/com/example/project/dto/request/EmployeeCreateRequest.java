@@ -1,18 +1,16 @@
-package com.example.project.dto.response;
+package com.example.project.dto.request;
 
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import java.time.LocalDate;
-import java.util.Set;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class UserResponse {
-    String id;
+public class EmployeeCreateRequest {
     String username;
     String password;
     String firstName;
@@ -23,6 +21,5 @@ public class UserResponse {
     String email;
     String phoneNumber;
     Boolean enable = true;
-    Set<RoleResponse> roles;
-    Set<String> roleName;
+    String roleId;
 }

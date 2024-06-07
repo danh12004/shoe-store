@@ -18,13 +18,6 @@ import java.util.List;
 public class RoleApi {
     RoleService roleService;
 
-    @GetMapping("/roles")
-    public ResponseDTO<List<RoleResponse>> getAll() {
-        return ResponseDTO.<List<RoleResponse>>builder()
-                .result(roleService.getAll())
-                .build();
-    }
-
     @PostMapping("/role")
     public ResponseDTO<RoleResponse> createRole(@RequestBody RoleRequest request) {
         return ResponseDTO.<RoleResponse>builder()

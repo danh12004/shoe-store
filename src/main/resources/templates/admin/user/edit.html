@@ -58,21 +58,45 @@
                             </div>
                             <!-- /.card-header -->
                             <!-- form start -->
-                            <form role="form" id="formSubmit" th:object="${category}">
+                            <form id="formSubmit" enctype="multipart/form-data" th:object="${user}">
                                 <input type="hidden" id="id" th:field="*{id}">
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label for="categoryName">Tên danh mục</label>
-                                        <input type="text" class="form-control" id="categoryName" placeholder="Tên danh mục" th:field="*{categoryName}">
+                                        <label for="firstName">Họ</label>
+                                        <input type="text" class="form-control" id="firstName" placeholder="Họ" th:field="*{firstName}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="lastName">Tên</label>
+                                        <input type="text" class="form-control" id="lastName" placeholder="Tên" th:field="*{lastName}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="gender">Giới tính</label>
+                                        <input type="text" class="form-control" id="gender" placeholder="Giới tính" th:field="*{gender}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="birthday">Ngày sinh</label>
+                                        <input type="date" class="form-control" id="birthday" placeholder="Giới tính" th:field="*{birthday}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="address">Địa chỉ</label>
+                                        <input type="text" class="form-control" id="address" placeholder="Địa chỉ" th:field="*{address}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email">Email</label>
+                                        <input type="text" class="form-control" id="email" placeholder="Email" th:field="*{email}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="phoneNumber">Số điện thoại</label>
+                                        <input type="text" class="form-control" id="phoneNumber" placeholder="Số điện thoại" th:field="*{phoneNumber}">
                                     </div>
                                     <div class="form-group">
                                         <label for="active">Trạng thái</label>
                                         <div class="form-check">
-                                            <input id="active" type="radio" class="form-check-input" th:field="*{categoryStatus}" value="1">
+                                            <input id="active" type="radio" class="form-check-input" th:field="*{enable}" value="1">
                                             <label class="form-check-label" for="active">Active</label>
                                         </div>
                                         <div class="form-check">
-                                            <input id="hidden" type="radio" class="form-check-input" th:field="*{categoryStatus}" value="0">
+                                            <input id="hidden" type="radio" class="form-check-input" th:field="*{enable}" value="0">
                                             <label class="form-check-label" for="hidden">Hidden</label>
                                         </div>
                                     </div>
@@ -81,9 +105,7 @@
 
                                 <div class="card-footer">
                                     <!-- Sử dụng th:if để kiểm tra xem trường "id" có giá trị không -->
-                                    <button type="submit" class="btn btn-primary" id="btnUpdate" th:if="${category.id != null}">Cập nhật sản phẩm</button>
-                                    <!-- Sử dụng th:unless để kiểm tra xem trường "id" có giá trị không -->
-                                    <button type="submit" class="btn btn-primary" id="btnAdd" th:unless="${category.id != null}">Thêm sản phẩm</button>
+                                    <button type="submit" class="btn btn-primary" id="btnUpdate" th:if="${user.id != null}">Cập nhật người dùng</button>
                                 </div>
                             </form>
                         </div>
@@ -121,12 +143,14 @@
 <script th:src="@{/assets/js/adminlte.min.js}"></script>
 <!-- Sweet Alert -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.8/dist/sweetalert2.all.min.js"></script>
+<!--  CKEditor -->
+<script src="https://cdn.ckeditor.com/ckeditor5/41.3.1/classic/ckeditor.js"></script>
 <!-- Page specific script -->
 <script th:inline="javascript">
     /*<![CDATA[*/
-        var editCategoryURL = /*[[@{/admin/edit-category}]]*/ '';
-        var categoryAPI = /*[[@{/api/admin/category}]]*/ '';
-        var categoryURL = /*[[@{/admin/category}]]*/ '';
+    var editUserURL = /*[[@{/admin/edit-user}]]*/ '';
+    var userAPI = /*[[@{/api/admin/user}]]*/ '';
+    var userURL = /*[[@{/admin/user}]]*/ '';
     /*]]>*/
 
     function getToken(cookieName) {
@@ -148,53 +172,6 @@
       }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
     });
 
-    $('#btnAdd').click(function (e) {
-        e.preventDefault();
-        var categoryName = $('#categoryName').val().trim();
-        if (categoryName === '') {
-            showSwal("Lỗi!", "Vui lòng nhập Tên danh mục.", "error", null);
-            return;
-        }
-        var data = {};
-        var formData = $('#formSubmit').serializeArray();
-        $.each(formData, function(_, kv) {
-            if (kv.name === 'categoryStatus') {
-                data[kv.name] = parseInt(kv.value);
-            } else {
-                data[kv.name] = kv.value;
-            }
-        });
-        addCategory(data);
-    });
-
-    var categoryName = $('#categoryName').val().trim();
-    var categoryStatus = $('input[name="categoryStatus"]:checked').val();
-
-    $('#btnUpdate').click(function (e) {
-        e.preventDefault();
-        var data = {};
-        var formData = $('#formSubmit').serializeArray();
-        var hasChanges = false;
-
-        $.each(formData, function(_, kv) {
-            if (kv.name === 'categoryStatus') {
-                data[kv.name] = parseInt(kv.value);
-            } else {
-                data[kv.name] = kv.value;
-            }
-            if ((kv.name === 'categoryName' && kv.value.trim() !== categoryName) || (kv.name === 'categoryStatus' && kv.value !== categoryStatus)) {
-                hasChanges = true;
-            }
-        });
-
-        if (!hasChanges) {
-            showSwal("Lỗi!", "Không có sự thay đổi để cập nhật.", "error", null);
-            return;
-        }
-
-        updateCategory(data);
-    });
-
     function showSwal(title, text, icon, redirectURL) {
         Swal.fire({
             title: title,
@@ -207,29 +184,52 @@
         });
     }
 
-    function addCategory(data) {
-        $.ajax({
-            url: categoryAPI,
-            type: 'POST',
-            contentType: 'application/json',
-            data: JSON.stringify(data),
-            dataType: 'json',
-            headers: {
-                'Authorization': 'Bearer ' + getToken('jwt')
-            },
-            success: function (result) {
-                showSwal("Thành công!", "Thêm sản phẩm thành công.", "success", categoryURL);
-            },
-            error: function (error) {
-                showSwal("Lỗi!", "Thêm sản phẩm thất bại.", "error", null);
-            }
-        })
-    }
+    var firstName = $('#firstName').val();
+    var lastName = $('#lastName').val();
+    var gender = $('#gender').val();
+    var birthday = $('#birthday').val();
+    var address = $('#address').val();
+    var email = $('#email').val();
+    var phoneNumber = $('#phoneNumber').val();
+    var enable = $('input[name="enable"]:checked').val();
 
-    function updateCategory(data) {
+    $('#btnUpdate').click(function (e) {
+        e.preventDefault();
+        var data = {};
+        var formData = $('#formSubmit').serializeArray();
+        var hasChanges = false;
+
+        $.each(formData, function(_, kv) {
+            if (kv.name === 'enable') {
+                data[kv.name] = parseInt(kv.value);
+            } else {
+                data[kv.name] = kv.value;
+            }
+            if ((kv.name === 'firstName' && kv.value.trim() !== firstName) ||
+                (kv.name === 'lastName' && kv.value !== lastName) ||
+                (kv.name === 'gender' && kv.value.trim() !== gender) ||
+                (kv.name === 'birthday' && kv.value.trim() !== birthday) ||
+                (kv.name === 'address' && kv.value.trim() !== address) ||
+                (kv.name === 'email' && kv.value.trim() !== email) ||
+                (kv.name === 'phoneNumber' && kv.value.trim() !== phoneNumber) ||
+                (kv.name === 'enable' && kv.value.trim() !== enable)) {
+
+                hasChanges = true;
+            }
+        });
+
+        if (!hasChanges) {
+            showSwal("Lỗi!", "Không có sự thay đổi để cập nhật.", "error", null);
+            return;
+        }
+
+        updateUser(data);
+    });
+
+    function updateUser(data) {
         var id = $('#id').val();
         $.ajax({
-            url: categoryAPI + '/' + id,
+            url: userAPI + '/' + id,
             type: 'PUT',
             contentType: 'application/json',
             data: JSON.stringify(data),
@@ -238,10 +238,10 @@
                 'Authorization': 'Bearer ' + getToken('jwt')
             },
             success: function (result) {
-                showSwal("Thành công!", "Cập nhật sản phẩm thành công.", "success", categoryURL);
+                showSwal("Thành công!", "Cập nhật người dùng thành công.", "success", userURL);
             },
             error: function (error) {
-                showSwal("Lỗi!", "Thêm sản phẩm thất bại.", "error", editCategoryURL);
+                showSwal("Lỗi!", "Cập nhật người dùng thất bại.", "error", editUserURL);
             }
         })
     }

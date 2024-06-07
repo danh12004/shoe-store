@@ -11,7 +11,7 @@ import java.util.Set;
 @AllArgsConstructor
 @Builder
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class UserResponse {
+public class EmployeeResponse {
     String id;
     String username;
     String password;
@@ -23,6 +23,6 @@ public class UserResponse {
     String email;
     String phoneNumber;
     Boolean enable = true;
-    Set<RoleResponse> roles;
+    String roleId;
     Set<String> roleName;
 }

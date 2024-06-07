@@ -18,14 +18,14 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.List;
 
 @RestController("adminProductAPI")
-@RequestMapping("/api")
+@RequestMapping("/api/admin/product")
 @RequiredArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class ProductAPI {
     ProductService productService;
     StorageService storageService;
 
-    @PostMapping("/product")
+    @PostMapping
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public ResponseDTO<ProductResponse> createProduct(@RequestPart("fileImage") MultipartFile file,
                                                       @ModelAttribute ProductCreateRequest request) {
@@ -37,7 +37,7 @@ public class ProductAPI {
                 .build();
     }
 
-    @PutMapping("/product/{id}")
+    @PutMapping("/{id}")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public ResponseDTO<ProductResponse> updateProduct(@PathVariable("id") String id,
                                                       @RequestPart("fileImage") MultipartFile file,
@@ -50,7 +50,7 @@ public class ProductAPI {
                 .build();
     }
 
-    @DeleteMapping("/product")
+    @DeleteMapping
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public void deleteProduct(@RequestBody String[] ids) {
         productService.delete(ids);

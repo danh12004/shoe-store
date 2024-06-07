@@ -56,6 +56,9 @@
                                 <i class="fas fa-trash"></i> Xóa
                             </button>
                         </div>
+                        <div class="float-sm-right">
+                            <a th:href="@{/admin/add-employee}" class="btn btn-primary">Thêm nhân viên</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -84,26 +87,28 @@
                                         <th>Địa chỉ</th>
                                         <th>Email</th>
                                         <th>Số điện thoại</th>
+                                        <th>Vai trò</th>
                                         <th></th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr th:each="user, index : ${users}">
+                                    <tr th:each="employee, index : ${employees}">
                                         <td>
                                             <label>
-                                                <input type="checkbox" th:value="${user.id}">
+                                                <input type="checkbox" th:value="${employee.id}">
                                             </label>
                                         </td>
                                         <td th:text="${index.count}"></td>
-                                        <td th:text="${user.firstName + ' ' + user.lastName}"></td>
-                                        <td th:text="${user.gender}"></td>
-                                        <td th:text="${user.birthday}"></td>
-                                        <td th:text="${user.address}"></td>
-                                        <td th:text="${user.email}"></td>
-                                        <td th:text="${user.phoneNumber}"></td>
+                                        <td th:text="${employee.firstName + ' ' + employee.lastName}"></td>
+                                        <td th:text="${employee.gender}"></td>
+                                        <td th:text="${employee.birthday}"></td>
+                                        <td th:text="${employee.address}"></td>
+                                        <td th:text="${employee.email}"></td>
+                                        <td th:text="${employee.phoneNumber}"></td>
+                                        <td th:text="${employee.roleName}"></td>
                                         <td>
                                             <div class="text-center">
-                                                <a th:href="@{/admin/edit-user(id=${user.id})}" class="btn btn-primary">Sửa</a>
+                                                <a th:href="@{/admin/edit-employee(id=${employee.id})}" class="btn btn-primary">Sửa</a>
                                             </div>
                                         </td>
                                     </tr>
@@ -158,8 +163,8 @@
     });
 
      /*<![CDATA[*/
-    var userAPI = /*[[@{/api/admin/user}]]*/ '';
-    var userURL = /*[[@{/admin/users}]]*/ '';
+    var employeeAPI = /*[[@{/api/admin/employee}]]*/ '';
+    var employeeURL = /*[[@{/admin/employee}]]*/ '';
     /*]]>*/
 
     function getToken(cookieName) {
@@ -205,7 +210,7 @@
                 }).then((result) => {
                     if (result.isConfirmed) {
                         $.ajax({
-                            url: userAPI,
+                            url: employeeAPI,
                             type: 'DELETE',
                             data: JSON.stringify(selectedItems),
                             contentType: 'application/json',
@@ -218,7 +223,7 @@
                                     text: "Người dùng đã được xóa.",
                                     icon: "success"
                                 }).then(() => {
-                                    window.location.href = userURL;
+                                    window.location.href = employeeURL;
                                 });
                             },
                             error: function (xhr, status, error) {
@@ -227,7 +232,7 @@
                                     text: "Đã xảy ra lỗi.",
                                     icon: "error"
                                 }).then(() => {
-                                    window.location.href = userURL;
+                                    window.location.href = employeeURL;
                                 });
                             }
                         });

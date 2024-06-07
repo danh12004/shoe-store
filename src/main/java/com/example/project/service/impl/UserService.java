@@ -15,8 +15,10 @@ import lombok.experimental.FieldDefaults;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -27,9 +29,16 @@ public class UserService implements IUserService {
     UserMapper userMapper;
     PasswordEncoder passwordEncoder;
 
-    @Override
     public List<UserResponse> getAll() {
-        return userMapper.toListUser(userRepository.findAll());
+        return userRepository.findAll().stream()
+                .filter(user -> user.getRoles().stream().anyMatch(role -> role.getName().equalsIgnoreCase("USER")))
+                .map(userMapper::toUserResponse)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public UserResponse findById(String id) {
+        return userMapper.toUserResponse(userRepository.findById(id).orElseThrow());
     }
 
     @Override

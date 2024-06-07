@@ -1,4 +1,4 @@
-package com.example.project.api.admin;
+package com.example.project.api.web;
 
 import com.example.project.configuration.CustomAuthenticationSuccessHandler;
 import com.example.project.dto.request.UserCreateRequest;
@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
+@RestController("webUserAPI")
 @RequestMapping("/api")
 @RequiredArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
@@ -24,13 +24,6 @@ public class UserApi {
     UserService userService;
     CustomAuthenticationSuccessHandler customAuthenticationSuccessHandler;
     UserMapper userMapper;
-
-    @GetMapping("/users")
-    public ResponseDTO<List<UserResponse>> getAll() {
-        return ResponseDTO.<List<UserResponse>>builder()
-                .result(userService.getAll())
-                .build();
-    }
 
     @PostMapping("/user")
     public ResponseDTO<UserResponse> createUser(@RequestBody UserCreateRequest request, HttpServletResponse response) {
@@ -55,10 +48,5 @@ public class UserApi {
                 .message("Update permission successfully.")
                 .result(userService.update(id, request))
                 .build();
-    }
-
-    @DeleteMapping("/user")
-    public void deleteUser(@RequestBody String[] ids) {
-        userService.delete(ids);
     }
 }

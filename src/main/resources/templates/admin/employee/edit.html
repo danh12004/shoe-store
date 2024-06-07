@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/extras/spring-security6">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Thêm sản phẩm</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Sweet Alert -->
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.8/dist/sweetalert2.min.css" rel="stylesheet">
+    <!-- DataTables -->
+    <link rel="stylesheet" th:href="@{/assets/css/dataTables.bootstrap4.min.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/responsive.bootstrap4.min.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/buttons.bootstrap4.min.css}">
+    <!-- Theme style -->
+    <link rel="stylesheet" th:href="@{/assets/css/adminlte.min.css}">
+</head>
+<body class="hold-transition sidebar-mini">
+
+<div class="wrapper">
+
+    <div th:replace="admin/fragments/header :: header"></div>
+
+    <div th:replace="admin/fragments/menu :: menu"></div>
+
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1>Trang danh mục</h1>
+                    </div>
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active">Blank Page</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <!-- /.container-fluid -->
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <!-- left column -->
+                    <div class="col-lg-6">
+                        <!-- general form elements -->
+                        <div class="card card-primary">
+                            <div class="card-header">
+                                <h3 class="card-title">Quick Example</h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <!-- form start -->
+                            <form id="formSubmit" enctype="multipart/form-data" th:object="${employee}">
+                                <input type="hidden" id="id" th:field="*{id}">
+                                <div class="card-body">
+                                    <div class="form-group" th:if="${employee.id == null}">
+                                        <label for="username">Tên đăng nhập</label>
+                                        <input type="text" class="form-control" id="username" placeholder="Tên đăng nhập" th:field="*{username}">
+                                    </div>
+                                    <div class="form-group" th:if="${employee.id == null}">
+                                        <label for="password">Mật khẩu</label>
+                                        <input type="text" class="form-control" id="password" placeholder="Mật khẩu" th:field="*{password}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="firstName">Họ</label>
+                                        <input type="text" class="form-control" id="firstName" placeholder="Họ" th:field="*{firstName}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="lastName">Tên</label>
+                                        <input type="text" class="form-control" id="lastName" placeholder="Tên" th:field="*{lastName}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="gender">Giới tính</label>
+                                        <input type="text" class="form-control" id="gender" placeholder="Giới tính" th:field="*{gender}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="birthday">Ngày sinh</label>
+                                        <input type="date" class="form-control" id="birthday" placeholder="Giới tính" th:field="*{birthday}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="address">Địa chỉ</label>
+                                        <input type="text" class="form-control" id="address" placeholder="Địa chỉ" th:field="*{address}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email">Email</label>
+                                        <input type="text" class="form-control" id="email" placeholder="Email" th:field="*{email}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="phoneNumber">Số điện thoại</label>
+                                        <input type="text" class="form-control" id="phoneNumber" placeholder="Số điện thoại" th:field="*{phoneNumber}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="active">Trạng thái</label>
+                                        <div class="form-check">
+                                            <input id="active" type="radio" class="form-check-input" th:field="*{enable}" value="1">
+                                            <label class="form-check-label" for="active">Active</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input id="hidden" type="radio" class="form-check-input" th:field="*{enable}" value="0">
+                                            <label class="form-check-label" for="hidden">Hidden</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="role">Chọn vai trò</label>
+                                        <input type="hidden" id="roleName" th:field="*{roleName}">
+                                        <select id="role" class="form-control" th:field="*{roleId}">
+                                            <option value="">-- Chọn vai trò --</option>
+                                            <option th:each="role : ${roles}" th:value="${role.id}" th:text="${role.name}"></option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <!-- /.card-body -->
+
+                                <div class="card-footer">
+                                    <button type="submit" class="btn btn-primary" id="btnAdd" th:if="${employee.id == null}">Thêm nhân viên</button>
+                                    <!-- Sử dụng th:if để kiểm tra xem trường "id" có giá trị không -->
+                                    <button type="submit" class="btn btn-primary" id="btnUpdate" th:if="${employee.id != null}">Cập nhật nhân viên</button>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                    <!--/.col (left) -->
+                </div>
+                <!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </section>
+        <!-- /.content -->
+    </div>
+
+    <div th:replace="admin/fragments/footer :: footer"></div>
+
+</div>
+<!-- JQuery -->
+<script th:src="@{/assets/js/jquery.min.js}"></script>
+<!-- Bootstrap 4 -->
+<script th:src="@{/assets/js/bootstrap.bundle.min.js}"></script>
+<!-- DataTables  & Plugins -->
+<script th:src="@{/assets/js/jquery.dataTables.min.js}"></script>
+<script th:src="@{/assets/js/dataTables.bootstrap4.min.js}"></script>
+<script th:src="@{/assets/js/dataTables.responsive.min.js}"></script>
+<script th:src="@{/assets/js/responsive.bootstrap4.min.js}"></script>
+<script th:src="@{/assets/js/dataTables.buttons.min.js}"></script>
+<script th:src="@{/assets/js/buttons.bootstrap4.min.js}"></script>
+<script th:src="@{/assets/js/jszip.min.js}"></script>
+<script th:src="@{/assets/js/pdfmake.min.js}"></script>
+<script th:src="@{/assets/js/vfs_fonts.js}"></script>
+<script th:src="@{/assets/js/buttons.html5.min.js}"></script>
+<script th:src="@{/assets/js/buttons.print.min.js}"></script>
+<script th:src="@{/assets/js/buttons.colVis.min.js}"></script>
+<!-- AdminLTE App -->
+<script th:src="@{/assets/js/adminlte.min.js}"></script>
+<!-- Sweet Alert -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.8/dist/sweetalert2.all.min.js"></script>
+<!--  CKEditor -->
+<script src="https://cdn.ckeditor.com/ckeditor5/41.3.1/classic/ckeditor.js"></script>
+<!-- Page specific script -->
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    var editEmployeeURL = /*[[@{/admin/edit-employee}]]*/ '';
+    var employeeAPI = /*[[@{/api/admin/employee}]]*/ '';
+    var employeeURL = /*[[@{/admin/employee}]]*/ '';
+    /*]]>*/
+
+    function getToken(cookieName) {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            const [name, value] = cookie.split('=');
+            if (name === cookieName) {
+                return value;
+            }
+        }
+        return null;
+    }
+
+    $(function () {
+      $("#example1").DataTable({
+        "responsive": true, "lengthChange": false, "autoWidth": false,
+        "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+      }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+    });
+
+    $('#btnAdd').click(function (e) {
+        e.preventDefault();
+        var username = $('#username').val().trim();
+        var password = $('#password').val().trim();
+        var firstName = $('#firstName').val();
+        var lastName = $('#lastName').val();
+        var gender = $('#gender').val();
+        var birthday = $('#birthday').val();
+        var address = $('#address').val();
+        var email = $('#email').val();
+        var phoneNumber = $('#phoneNumber').val();
+        var enable = $('input[name="enable"]:checked').val();
+        var roleId = $('#roleId').val();
+        if (username === '') {
+            showSwal("Lỗi!", "Vui lòng nhập tên đăng nhập.", "error", null);
+            return;
+        } else if (password === '') {
+            showSwal("Lỗi!", "Vui lòng nhập mật khẩu.", "error", null);
+            return;
+        } else if (firstName === '') {
+            showSwal("Lỗi!", "Vui lòng nhập họ.", "error", null);
+            return;
+        } else if (lastName === '') {
+            showSwal("Lỗi!", "Vui lòng nhập tên.", "error", null);
+            return;
+        } else if (gender === '') {
+            showSwal("Lỗi!", "Vui lòng nhập giới tính.", "error", null);
+            return;
+        } else if (birthday === '') {
+            showSwal("Lỗi!", "Vui lòng nhập ngày sinh.", "error", null);
+            return;
+        } else if (address === '') {
+            showSwal("Lỗi!", "Vui lòng nhập địa chỉ.", "error", null);
+            return;
+        } else if (email === '') {
+            showSwal("Lỗi!", "Vui lòng nhập email.", "error", null);
+            return;
+        } else if (phoneNumber === '') {
+            showSwal("Lỗi!", "Vui lòng nhập số điện thoại.", "error", null);
+            return;
+        } else if (roleId === '') {
+            showSwal("Lỗi!", "Vui lòng chọn vai trò.", "error", null);
+            return;
+        }
+        var data = {};
+        var formData = $('#formSubmit').serializeArray();
+        $.each(formData, function(_, kv) {
+            if (kv.name === 'enable') {
+                data[kv.name] = parseInt(kv.value);
+            } else {
+                data[kv.name] = kv.value;
+            }
+        });
+
+        addCategory(data);
+    });
+
+    function showSwal(title, text, icon, redirectURL) {
+        Swal.fire({
+            title: title,
+            text: text,
+            icon: icon
+        }).then((result) => {
+            if (result.isConfirmed && redirectURL) {
+                window.location.href = redirectURL;
+            }
+        });
+    }
+
+    var firstName = $('#firstName').val();
+    var lastName = $('#lastName').val();
+    var gender = $('#gender').val();
+    var birthday = $('#birthday').val();
+    var address = $('#address').val();
+    var email = $('#email').val();
+    var phoneNumber = $('#phoneNumber').val();
+    var enable = $('input[name="enable"]:checked').val();
+    var roleId = $('#roleId').val();
+
+    $('#btnUpdate').click(function (e) {
+        e.preventDefault();
+        var data = {};
+        var formData = $('#formSubmit').serializeArray();
+        var hasChanges = false;
+
+        $.each(formData, function(_, kv) {
+            if (kv.name === 'enable') {
+                data[kv.name] = parseInt(kv.value);
+            } else {
+                data[kv.name] = kv.value;
+            }
+            if ((kv.name === 'firstName' && kv.value.trim() !== firstName) ||
+                (kv.name === 'lastName' && kv.value !== lastName) ||
+                (kv.name === 'gender' && kv.value.trim() !== gender) ||
+                (kv.name === 'birthday' && kv.value.trim() !== birthday) ||
+                (kv.name === 'address' && kv.value.trim() !== address) ||
+                (kv.name === 'email' && kv.value.trim() !== email) ||
+                (kv.name === 'phoneNumber' && kv.value.trim() !== phoneNumber) ||
+                (kv.name === 'enable' && kv.value.trim() !== enable) ||
+                (kv.name === 'roleId' && kv.value.trim() !== roleId)) {
+
+                hasChanges = true;
+            }
+        });
+
+        if (!hasChanges) {
+            showSwal("Lỗi!", "Không có sự thay đổi để cập nhật.", "error", null);
+            return;
+        }
+
+        updateUser(data);
+    });
+
+    function addCategory(data) {
+        $.ajax({
+            url: employeeAPI,
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify(data),
+            dataType: 'json',
+            headers: {
+                'Authorization': 'Bearer ' + getToken('jwt')
+            },
+            success: function (result) {
+                showSwal("Thành công!", "Thêm nhân viên thành công.", "success", employeeURL);
+            },
+            error: function (error) {
+                showSwal("Lỗi!", "Thêm nhân viên thất bại.", "error", null);
+            }
+        })
+    }
+
+    function updateUser(data) {
+        var id = $('#id').val();
+        $.ajax({
+            url: employeeAPI + '/' + id,
+            type: 'PUT',
+            contentType: 'application/json',
+            data: JSON.stringify(data),
+            dataType: 'json',
+            headers: {
+                'Authorization': 'Bearer ' + getToken('jwt')
+            },
+            success: function (result) {
+                showSwal("Thành công!", "Cập nhật người dùng thành công.", "success", employeeURL);
+            },
+            error: function (error) {
+                showSwal("Lỗi!", "Cập nhật người dùng thất bại.", "error", editEmployeeURL);
+            }
+        })
+    }
+</script>
+</body>
+</html>

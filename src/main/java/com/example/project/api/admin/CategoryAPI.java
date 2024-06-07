@@ -13,14 +13,14 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/admin/category")
 @RequiredArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 @Slf4j
 public class CategoryAPI {
     ICategoryService categoryService;
 
-    @PostMapping("/category")
+    @PostMapping
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public ResponseDTO<CategoryResponse> createCategory(@RequestBody CategoryCreateRequest categoryCreateRequest) {
         return ResponseDTO.<CategoryResponse>builder()
@@ -29,7 +29,7 @@ public class CategoryAPI {
                 .build();
     }
 
-    @PutMapping("/category/{id}")
+    @PutMapping("/{id}")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public ResponseDTO<CategoryResponse> updateCategory(@PathVariable String id, @RequestBody CategoryUpdateRequest request) {
         return ResponseDTO.<CategoryResponse>builder()
@@ -38,7 +38,7 @@ public class CategoryAPI {
                 .build();
     }
 
-    @DeleteMapping("/category")
+    @DeleteMapping
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public void deleteCategory(@RequestBody String[] ids) {
         categoryService.delete(ids);
