@@ -11,14 +11,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/home")
+@RequestMapping("/cart")
 @RequiredArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
-public class HomController {
+public class CartController {
 
     @GetMapping
     public String home(@AuthenticationPrincipal UserDetails userDetails, Model model) {
         model.addAttribute("user", userDetails);
-        return "web/home";
+        return "web/cart";
     }
 }

@@ -13,6 +13,7 @@ import java.util.List;
 @Mapper(componentModel = "spring")
 public interface UserMapper {
     User toUserEntity(UserCreateRequest request);
+    User toUserEntity(UserResponse request);
     UserResponse toUserResponse(User user);
     List<UserResponse> toListUser(List<User> users);
     void update(@MappingTarget User user, UserUpdateRequest request);

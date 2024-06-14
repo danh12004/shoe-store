@@ -58,7 +58,7 @@
             <div class="header-nav col-8 d-flex justify-content-around">
                 <div class="nav-menu">
                     <ul class="menu-list d-flex">
-                        <li><a href="home.html">TRANG CHỦ</a></li>
+                        <li><a th:href="@{/home}">TRANG CHỦ</a></li>
                         <li><a href="introduce.html">GIỚI THIỆU</a></li>
                         <li class="submenu">
                             <a th:href="@{/product}">SẢN PHẨM</a>
@@ -80,60 +80,18 @@
                     <span class="favorite-quantity">0</span>
                 </div>
                 <div class="icon cart">
-                    <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
-                    <span class="cart-quantity">0</span>
+                    <a th:href="@{/cart}">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <span class="cart-quantity">0</span>
+                    </a>
                     <div class="box-cart">
                         <p>Sản phẩm</p>
-                        <ul class="list-cart">
-                            <li class="cart-item">
-                                <a href="">
-                                    <img src="" alt="">
-                                    <div class="item">
-                                        <p class="name">Giày Thể Thao Nam GTT23.4</p>
-                                        <p class="price">Giá: 1,300,000 VND</p>
-                                        <div class="quantity-item">
-                                            <span class="subtraction">-</span>
-                                            <span class="quantity-product">1</span>
-                                            <span class="add">+</span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="cart-item">
-                                <a href="">
-                                    <img src="" alt="">
-                                    <div class="item">
-                                        <p class="name">Giày Thể Thao Nam GTT23.4</p>
-                                        <p class="price">Giá: 1,300,000 VND</p>
-                                        <div class="quantity-item">
-                                            <span class="subtraction">-</span>
-                                            <span class="quantity-product">1</span>
-                                            <span class="add">+</span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="cart-item">
-                                <a href="">
-                                    <img src="" alt="">
-                                    <div class="item">
-                                        <p class="name">Giày Thể Thao Nam GTT23.4</p>
-                                        <p class="price">Giá: 1,300,000 VND</p>
-                                        <div class="quantity-item">
-                                            <span class="subtraction">-</span>
-                                            <span class="quantity-product">1</span>
-                                            <span class="add">+</span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
+                        <ul class="list-cart" id="cartItemsList"></ul>
+                        <p id="noItemsMessage" class="text-center">Không có sản phẩm</p>
                         <div class="total-money">
-                            <p>Tổng tiền: <span class="total">1.000.000VNĐ</span></p>
+                            <p>Tổng tiền: <span class="total" id="totalAmount"></span></p>
                         </div>
-                        <div class="button">
-                            <button class="payment">Thanh toán</button>
-                        </div>
+                        <button class="payment">Thanh toán</button>
                     </div>
                 </div>
             </div>

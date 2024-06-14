@@ -42,6 +42,11 @@ public class UserService implements IUserService {
     }
 
     @Override
+    public UserResponse findByUsername(String username) {
+        return userMapper.toUserResponse(userRepository.findByUsername(username));
+    }
+
+    @Override
     public UserResponse create(UserCreateRequest request) {
         if (userRepository.findByUsername(request.getUsername()) != null) {
             throw new RuntimeException();

@@ -151,7 +151,7 @@ body {
 }
 
 .header-icons .favorites .favorite-quantity,
-.header-icons .cart .cart-quantity {
+.header-icons .cart a .cart-quantity {
     position: absolute;
     top: 18px;
     right: 6px;
@@ -191,6 +191,7 @@ body {
     margin-top: 20px;
     opacity: 0;
     display: none;
+    max-height: 400px;
 }
 
 .header-icons .cart .box-cart::before {
@@ -218,8 +219,7 @@ body {
 }
 
 .cart .box-cart p {
-    padding: 6px 0;
-    margin: 10px 0 0;
+    margin: 4px 0px;
     color: var(--text-color);
     line-height: 30px;
 }
@@ -230,12 +230,14 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    max-height: 300px; 
+    min-height: 1px;
     overflow-y: auto;
+    max-height: 290px;
+    margin: 0 0 6px 0;
 }
 
 .box-cart .list-cart .cart-item {
-    margin: 4px 0;
+    margin: 2px 0;
     width: 100%;
     padding: 4px;
     border: 1px solid #ccc;
@@ -251,10 +253,6 @@ body {
     text-decoration: none;
 }
 
-.box-cart .button {
-    margin: 0 0 10px 0;
-}
-
 .box-cart .total-money p {
     margin: 0;
     color: #000;
@@ -265,16 +263,20 @@ body {
     font-weight: bold;
 }
 
-.box-cart .button .payment {
-    width: 100%;
+.box-cart .payment {
+    width: 34%;
     border: none;
     background-color: var(--primary-color);
     border-radius: 4px;
-    line-height: 40px;
+    line-height: 38px;
     transition: all linear .2s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 4px 0;
 }
 
-.box-cart .button .payment:hover {
+.box-cart .payment:hover {
     color: var(--white-color);
 }
 
@@ -299,6 +301,7 @@ body {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    width: 198px;
 }
 
 .cart-item a .item .name:hover {
@@ -586,4 +589,21 @@ body {
 
 .promotion .promotion-box li {
     margin: 10px 0;
+}
+
+.dropdown .dropdown-menu {
+    position: absolute;
+    z-index: 1000;
+    right: 12px;
+    min-width: 10rem;
+    padding: .5rem 0;
+    margin-left: 72%;
+    font-size: 1rem;
+    color: #212529;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 0, 0, .15);
+    border-radius: 0;
 }

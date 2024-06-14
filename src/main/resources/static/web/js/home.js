@@ -82,5 +82,9 @@ $(document).ready(function () {
             $('.modal-body .col-6 > img').attr('src', currentImage);
         }
     });
+
+    $('#detail').click(function(e) {
+        e.preventDefault();
+    });
 });
 

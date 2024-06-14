@@ -45,7 +45,11 @@ public class ProductService implements IProductService {
         Product product = productRepository.findById(id).orElseThrow(
                 () -> new RuntimeException()
         );
-        return productMapper.toProductResponse(product);
+
+        ProductResponse productResponse = productMapper.toProductResponse(product);
+        productResponse.setCategoryId(product.getCategory().getId());
+        productResponse.setCategoryName(product.getCategory().getCategoryName());
+        return productResponse;
     }
 
     @Override
