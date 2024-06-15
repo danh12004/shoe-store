@@ -8,39 +8,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" th:href="@{/web/css/style.css}">
     <link rel="stylesheet" th:href="@{/web/css/product.css}">
-    <style>
-        .content {
-            margin-bottom: 20px;
-        }
-
-        .product .new-product-item .product-details .price,
-        .product .new-product-item .product-details .name {
-            color: var(--text-color);
-        }
-
-        .product-img .icons .icon {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 10px;
-        }
-
-        .product .new-product-item .product-img img {
-            max-height: 244px;
-        }
-
-        .category .input .input-group a {
-            color: var(--text-color);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-        }
-
-        .category .input .input-group a input,
-        .category .input .input-group a label {
-            cursor: pointer;
-        }
-    </style>
 </head>
 <body>
     <div class="main">
@@ -194,33 +161,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="category mt-4">
-                                <div class="col-12">
-                                    <h3>Chọn mức giá:</h3>
-                                    <div class="input d-flex flex-column">
-                                        <div class="input-group">
-                                            <input type="checkbox" name="" id="price-500">
-                                            <label for="price-500">Giá dưới 500.000đ</label>
-                                        </div>
-                                        <div class="input-group">
-                                            <input type="checkbox" name="" id="price-500-1000">
-                                            <label for="price-500-1000">500.000đ - 1.000.000đ</label>
-                                        </div>
-                                        <div class="input-group">
-                                            <input type="checkbox" name="" id="price-1000-1500">
-                                            <label for="price-1000-1500">1.000.000đ - 1.500.000đ</label>
-                                        </div>
-                                        <div class="input-group">
-                                            <input type="checkbox" name="" id="price-1500-2000">
-                                            <label for="price-1500-2000">1.500.000đ - 2.000.000đ</label>
-                                        </div>
-                                        <div class="input-group">
-                                            <input type="checkbox" name="" id="price-2000">
-                                            <label for="price-2000">Trên 2.000.000đ</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                     <div class="col-9 introduce">
@@ -228,11 +168,10 @@
                             <h3>Tất cả sản phẩm</h3>
                             <div class="sort d-flex justify-content-center align-items-center">
                                 <p class="m-0">Sắp xếp theo</p>
-                                <select name="" id="">
-                                    <option value="">Mặc định</option>
-                                    <option value="">Giá tăng dần</option>
-                                    <option value="">Giá giảm dần</option>
-                                    <option value="">Mới nhất</option>
+                                <select id="sort-select">
+                                    <option value="default">Mặc định</option>
+                                    <option value="asc">Giá tăng dần</option>
+                                    <option value="desc">Giá giảm dần</option>
                                 </select>
                             </div>
                         </div>
@@ -244,15 +183,15 @@
                                             <a th:href="@{'/detail?id=' + ${product.id}}" class="d-flex justify-content-center">
                                                 <div class="new-product-item">
                                                     <div class="product-img">
-                                                        <img th:src="@{'/uploads/'+${product.image}}" alt="" class="original-image" style="max-height: 500px;">
+                                                        <img th:src="@{'/uploads/'+${product.image}}" alt="" class="original-image" style="max-height: 245px;">
                                                         <img th:src="@{/web/img/nike/male/nike2.png}" alt="" class="new-image">
                                                         <p class="discount">20%</p>
                                                         <div class="icons">
                                                             <div class="icon">
                                                                 <i class="fa-regular fa-heart"></i>
                                                             </div>
-                                                            <div class="icon detail-product" th:data-product-id="${product.id}">
-                                                                <i class="fa-solid fa-sliders" data-bs-toggle="modal" data-bs-target="#expand"></i>
+                                                            <div class="icon detail-product" th:data-product-id="${product.id}" data-bs-toggle="modal" data-bs-target="#expand">
+                                                                <i class="fa-solid fa-sliders"></i>
                                                             </div>
                                                             <div class="icon add-to-cart" th:data-product-id="${product.id}">
                                                                 <i class="fa-solid fa-cart-plus"></i>
@@ -298,9 +237,7 @@
                 <div class="modal-content">
                     <div class="modal-body">
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close" style="position: absolute; top: 10px; right: 10px;"></button>
-                        <div class="row mt-2" id="detail-product">
-
-                        </div>
+                        <div class="row mt-2" id="detail-product"></div>
                     </div>
                 </div>
             </div>

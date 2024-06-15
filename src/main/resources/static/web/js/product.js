@@ -84,6 +84,21 @@ $(document).ready(function () {
             }
         });
     });
+
+     var urlParams = new URLSearchParams(window.location.search);
+     var sort = urlParams.get('sort');
+     if (sort) {
+         $('#sort-select').val(sort.toLowerCase());
+     }
+
+    $('#sort-select').on('change', function() {
+        var sortValue = $(this).val();
+        if (sortValue === 'default') {
+            window.location.href = '/product';
+        } else {
+            window.location.href = '/product?sort=' + sortValue.toLowerCase();
+        }
+    });
 });
 
 function showModalDetailProduct(product) {

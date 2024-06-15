@@ -15,17 +15,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 
 @Controller
-@RequestMapping("/home")
+@RequestMapping("/contact")
 @RequiredArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
-public class HomController {
-    ProductService productService;
-
+public class ContactController {
     @GetMapping
     public String home(@AuthenticationPrincipal UserDetails userDetails, Model model) {
-        List<ProductResponse> productResponses = productService.getAll().stream().limit(8).toList();
-        model.addAttribute("products", productResponses);
         model.addAttribute("user", userDetails);
-        return "web/home";
+        return "web/contact";
     }
 }

@@ -26,8 +26,13 @@ body {
 
 .topbar {
     width: 100%;
-    padding: 10px 0;
     background-color: #000;
+}
+
+.topbar .contact {
+    height: 46px;
+    display: flex;
+    align-items: center;
 }
 
 .topbar .contact span {
@@ -55,6 +60,10 @@ body {
 
 .topbar .account a:hover {
     color: var(--white-color);
+}
+
+.dropdown-toggle::after {
+    display: none;
 }
 
 .main-header {
@@ -191,7 +200,7 @@ body {
     margin-top: 20px;
     opacity: 0;
     display: none;
-    max-height: 400px;
+    max-height: 421px;
 }
 
 .header-icons .cart .box-cart::before {
@@ -232,7 +241,7 @@ body {
     justify-content: space-between;
     min-height: 1px;
     overflow-y: auto;
-    max-height: 290px;
+    max-height: 302px;
     margin: 0 0 6px 0;
 }
 
@@ -366,19 +375,25 @@ body {
     font-size: 14px;
 }
 
-.header .search i {
-    cursor: pointer;
+.header .search button {
     position: absolute;
     font-size: 18px;
     padding: 10px;
-    right: 496px;
-    top: 0px;
+    right: 476px;
+    top: 1px;
+    height: 32px;
+    width: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background: #fff;
 }
 
 .search-results {
     position: absolute;
-    top: calc(22% + 12px);
-    left: calc(28% + 50px);
+    top: calc(22% + -2px);
+    left: calc(28% + 63px);
     width: calc(35% + 7px);
     background-color: white;
     border: none;
@@ -412,7 +427,6 @@ body {
     width: 100%;
     height: 38vh;
     background-color: #000;
-    margin-top: 40px;
     position: relative;
 }
 
@@ -596,9 +610,9 @@ body {
     z-index: 1000;
     right: 12px;
     min-width: 10rem;
-    padding: .5rem 0;
     margin-left: 72%;
     font-size: 1rem;
+    padding: 0 !important;
     color: #212529;
     text-align: left;
     list-style: none;
@@ -606,4 +620,16 @@ body {
     background-clip: padding-box;
     border: 1px solid rgba(0, 0, 0, .15);
     border-radius: 0;
+}
+
+.dropdown-menu .user-footer div a {
+    width: 100%;
+}
+
+.dropdown-menu .user-footer div a:hover {
+    background: rgb(220 220 220);
+}
+
+.btn-no-center {
+    text-align: left !important;
 }

@@ -9,23 +9,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" th:href="@{/web/css/style.css}">
     <link rel="stylesheet" th:href="@{/web/css/home.css}">
-    <style>
-        .user-footer a:focus {
-            outline: none;
-            box-shadow: none;
-        }
-
-        .product .new-product-item .product-details .price,
-        .product .new-product-item .product-details .name {
-            color: var(--text-color);
-        }
-
-        .product-img .icons .icon {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-    </style>
 </head>
 
 <body>
@@ -36,17 +19,17 @@
             <div class="slider-container">
                 <div class="slider">
                     <div class="slide">
-                        <a href="products.html">
+                        <a th:href="@{/product}">
                             <img th:src="@{web/img/slider/banner1.webp}" alt="">
                         </a>
                     </div>
                     <div class="slide">
-                        <a href="products.html">
+                        <a th:href="@{/product}">
                             <img th:src="@{web/img/slider/banner2.png}" alt="">
                         </a>
                     </div>
                     <div class="slide">
-                        <a href="products.html">
+                        <a th:href="@{/product}">
                             <img th:src="@{web/img/slider/banner3.png}" alt="">
                         </a>
                     </div>
@@ -103,7 +86,7 @@
                     </div>
                     <div class="box-category">
                         <div class="category-product">
-                            <a href="products.html">
+                            <a th:href="@{/product?brand=Nike}">
                                 <div class="cate-img">
                                     <img th:src="@{web/img/logo/nike-logo.png}" alt="">
                                 </div>
@@ -113,7 +96,7 @@
                             </a>
                         </div>
                         <div class="category-product">
-                            <a href="products.html">
+                            <a th:href="@{/product?brand=Adidas}">
                                 <div class="cate-img">
                                     <img th:src="@{web/img/logo/adidas-logo.png}" alt="">
                                 </div>
@@ -123,7 +106,7 @@
                             </a>
                         </div>
                         <div class="category-product">
-                            <a href="products.html">
+                            <a th:href="@{/product?brand=Puma}">
                                 <div class="cate-img">
                                     <img th:src="@{web/img/logo/puma-logo.png}" alt="">
                                 </div>
@@ -133,7 +116,7 @@
                             </a>
                         </div>
                         <div class="category-product">
-                            <a href="products.html">
+                            <a th:href="@{/product?brand=Reebok}">
                                 <div class="cate-img">
                                     <img th:src="@{web/img/logo/reebok-logo.png}" alt="">
                                 </div>
@@ -143,7 +126,7 @@
                             </a>
                         </div>
                         <div class="category-product">
-                            <a href="products.html">
+                            <a th:href="@{/product?brand=New%20Balance}">
                                 <div class="cate-img">
                                     <img th:src="@{web/img/logo/newbalance-logo.png}" alt="">
                                 </div>
@@ -242,7 +225,7 @@
                         <a href="productdetail.html" class="col-4">
                             <div class="sale-product d-flex col-4" onmouseover="changeImage(this)" onmouseout="resetImage(this)">
                                 <div class="sale-img">
-                                    <img th:src="@{web/img/nike/nam/nike1.png}" alt="">
+                                    <img th:src="@{web/img/nike/male/nike1.png}" alt="">
                                 </div>
                                 <div class="sale-product-info">
                                     <h3 class="manufacturer">Nike</h3>
@@ -254,7 +237,7 @@
                         <a href="productdetail.html" class="col-4">
                             <div class="sale-product d-flex col-4" onmouseover="changeImage(this)" onmouseout="resetImage(this)">
                                 <div class="sale-img">
-                                    <img th:src="@{web/img/nike/nam/nike1.png}" alt="">
+                                    <img th:src="@{web/img/nike/male/nike1.png}" alt="">
                                 </div>
                                 <div class="sale-product-info">
                                     <h3 class="manufacturer">Nike</h3>
@@ -266,7 +249,7 @@
                         <a href="productdetail.html" class="col-4">
                             <div class="sale-product d-flex col-4" onmouseover="changeImage(this)" onmouseout="resetImage(this)">
                                 <div class="sale-img">
-                                    <img th:src="@{web/img/nike/nam/nike1.png}" alt="">
+                                    <img th:src="@{web/img/nike/male/nike1.png}" alt="">
                                 </div>
                                 <div class="sale-product-info">
                                     <h3 class="manufacturer">Nike</h3>
@@ -278,7 +261,7 @@
                         <a href="productdetail.html" class="col-4">
                             <div class="sale-product d-flex col-4" onmouseover="changeImage(this)" onmouseout="resetImage(this)">
                                 <div class="sale-img">
-                                    <img th:src="@{web/img/nike/nam/nike1.png}" alt="">
+                                    <img th:src="@{web/img/nike/male/nike1.png}" alt="">
                                 </div>
                                 <div class="sale-product-info">
                                     <h3 class="manufacturer">Nike</h3>
@@ -329,137 +312,29 @@
                     <div class="box-product">
                         <div class="product">
                             <div class="row">
-                                <div class="col-3 mt-2">
-                                    <a href="productdetail.html" class="d-flex justify-content-center">
+                                <div class="col-3 mt-2" th:each="product : ${products}">
+                                    <a th:href="@{'/detail?id=' + ${product.id}}" class="d-flex justify-content-center">
                                         <div class="new-product-item">
                                             <div class="product-img">
-                                                <img th:src="@{web/img/nike/nam/nike1.png}" alt="Product Image" class="original-image">
-                                                <img th:src="@{web/img/nike/nam/nike2.png}" alt="Product Image" class="new-image">
+                                                <img th:src="@{'/uploads/'+${product.image}}" alt="" class="original-image" style="max-height: 245px;">
+                                                <img th:src="@{/web/img/nike/male/nike2.png}" alt="" class="new-image">
                                                 <p class="discount">20%</p>
                                                 <div class="icons">
                                                     <div class="icon">
                                                         <i class="fa-regular fa-heart"></i>
                                                     </div>
-                                                    <div class="icon">
-                                                        <i class="fa-solid fa-sliders" id="detail" data-bs-toggle="modal" data-bs-target="#expand"></i>
+                                                    <div class="icon detail-product" th:data-product-id="${product.id}" data-bs-toggle="modal" data-bs-target="#expand">
+                                                        <i class="fa-solid fa-sliders"></i>
                                                     </div>
-                                                    <div class="icon">
+                                                    <div class="icon add-to-cart" th:data-product-id="${product.id}">
                                                         <i class="fa-solid fa-cart-plus"></i>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="product-details">
-                                                <h2 class="manufacturer">Nike</h2>
-                                                <h3 class="name">Nike Zoom Pegasus 33</h3>
-                                                <p class="price">1,550,000 VNĐ</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="col-3 mt-2">
-                                    <a href="productdetail.html" class="d-flex justify-content-center">
-                                        <div class="new-product-item">
-                                            <div class="product-img">
-                                                <img th:src="@{web/img/nike/nam/nike1.png}" alt="Product Image" class="original-image">
-                                                <img th:src="@{web/img/nike/nam/nike2.png}" alt="Product Image" class="new-image">
-                                                <p class="discount">20%</p>
-                                                <div class="icons">
-                                                    <div class="icon">
-                                                        <i class="fa-regular fa-heart"></i>
-                                                    </div>
-                                                    <div class="icon">
-                                                        <i class="fa-solid fa-sliders" data-bs-toggle="modal" data-bs-target="#expand"></i>
-                                                    </div>
-                                                    <div class="icon">
-                                                        <i class="fa-solid fa-cart-plus"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="product-details">
-                                                <h2 class="manufacturer">Nike</h2>
-                                                <h3 class="name">Nike Zoom Pegasus 33</h3>
-                                                <p class="price">1,550,000 VNĐ</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="col-3 mt-2">
-                                    <a href="productdetail.html" class="d-flex justify-content-center">
-                                        <div class="new-product-item">
-                                            <div class="product-img">
-                                                <img th:src="@{web/img/nike/nam/nike1.png}" alt="Product Image" class="original-image">
-                                                <img th:src="@{web/img/nike/nam/nike2.png}" alt="Product Image" class="new-image">
-                                                <p class="discount">20%</p>
-                                                <div class="icons">
-                                                    <div class="icon">
-                                                        <i class="fa-regular fa-heart"></i>
-                                                    </div>
-                                                    <div class="icon">
-                                                        <i class="fa-solid fa-sliders" data-bs-toggle="modal" data-bs-target="#expand"></i>
-                                                    </div>
-                                                    <div class="icon">
-                                                        <i class="fa-solid fa-cart-plus"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="product-details">
-                                                <h2 class="manufacturer">Nike</h2>
-                                                <h3 class="name">Nike Zoom Pegasus 33</h3>
-                                                <p class="price">1,550,000 VNĐ</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="col-3 mt-2">
-                                    <a href="productdetail.html" class="d-flex justify-content-center">
-                                        <div class="new-product-item">
-                                            <div class="product-img">
-                                                <img th:src="@{web/img/nike/nam/nike1.png}" alt="Product Image" class="original-image">
-                                                <img th:src="@{web/img/nike/nam/nike2.png}" alt="Product Image" class="new-image">
-                                                <p class="discount">20%</p>
-                                                <div class="icons">
-                                                    <div class="icon">
-                                                        <i class="fa-regular fa-heart"></i>
-                                                    </div>
-                                                    <div class="icon">
-                                                        <i class="fa-solid fa-sliders" data-bs-toggle="modal" data-bs-target="#expand"></i>
-                                                    </div>
-                                                    <div class="icon">
-                                                        <i class="fa-solid fa-cart-plus"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="product-details">
-                                                <h2 class="manufacturer">Nike</h2>
-                                                <h3 class="name">Nike Zoom Pegasus 33</h3>
-                                                <p class="price">1,550,000 VNĐ</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="col-3 mt-2">
-                                    <a href="productdetail.html" class="d-flex justify-content-center">
-                                        <div class="new-product-item">
-                                            <div class="product-img">
-                                                <img th:src="@{web/img/nike/nam/nike1.png}" alt="Product Image" class="original-image">
-                                                <img th:src="@{web/img/nike/nam/nike2.png}" alt="Product Image" class="new-image">
-                                                <p class="discount">20%</p>
-                                                <div class="icons">
-                                                    <div class="icon">
-                                                        <i class="fa-regular fa-heart"></i>
-                                                    </div>
-                                                    <div class="icon">
-                                                        <i class="fa-solid fa-sliders" data-bs-toggle="modal" data-bs-target="#expand"></i>
-                                                    </div>
-                                                    <div class="icon">
-                                                        <i class="fa-solid fa-cart-plus"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="product-details">
-                                                <h2 class="manufacturer">Nike</h2>
-                                                <h3 class="name">Nike Zoom Pegasus 33</h3>
-                                                <p class="price">1,550,000 VNĐ</p>
+                                                <h2 class="manufacturer" th:text="${product.categoryName}"></h2>
+                                                <h3 class="name" th:text="${product.productName}"></h3>
+                                                <p class="price" th:text="${#numbers.formatDecimal(product.price, 0, 'COMMA', 2, 'POINT')} + ' VNĐ'"></p>
                                             </div>
                                         </div>
                                     </a>
@@ -573,68 +448,7 @@
                 <div class="modal-content">
                     <div class="modal-body">
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close" style="position: absolute; top: 10px; right: 10px;"></button>
-                        <div class="row mt-2">
-                            <div class="col-6 d-flex flex-column">
-                                <img th:src="@{web/img/nike/nam/nike1.png}" alt="">
-                                <div class="list-img d-flex">
-                                    <div class="row mt-4">
-                                        <div class="col-3">
-                                            <img th:rc="@{web/img/nike/nam/nike1.png}" alt="" style="width: 100%;">
-                                        </div>
-                                        <div class="col-3">
-                                            <img th:src="@{web/img/nike/nam/nike2.png}" alt="" style="width: 100%;">
-                                        </div>
-                                        <div class="col-3">
-                                            <img th:src="@{web/img/nike/nam/nike1.png}" alt="" style="width: 100%;">
-                                        </div>
-                                        <div class="col-3">
-                                            <img th:src="@{web/img/nike/nam/nike2.png}" alt="" style="width: 100%;">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-6 mt-3">
-                                <h3 class="name" style="font-weight: bold;">Nike Zoom Pegasus 33</h3>
-                                <div class="infomation d-flex align-items-center">
-                                    <p style="font-size: 14px; margin: 0;">Thương hiệu: <span style="color: var(--primary-color);">Nike</span></p>
-                                    <span style="padding: 0 20px;">|</span>
-                                    <p style="font-size: 14px; margin: 0;">Mã sản phẩm: <span style="color: var(--primary-color);">0648135642134</span></p>
-                                </div>
-                                <p class="price mt-3" style="font-weight: bold; font-size: 20px;">1,550,000 VNĐ</p>
-                                <div class="color">
-                                    <p style="margin: 0;">Màu sắc:</p>
-                                    <div class="list-color d-flex">
-                                        <div class="box m-2" style="width: 23px; height: 23px; background-color: red; border-radius: 50%; cursor: pointer;"></div>
-                                        <div class="box m-2" style="width: 23px; height: 23px; background-color: orange; border-radius: 50%; cursor: pointer;"></div>
-                                        <div class="box m-2" style="width: 23px; height: 23px; background-color: blue; border-radius: 50%; cursor: pointer;"></div>
-                                        <div class="box m-2" style="width: 23px; height: 23px; background-color: grey; border-radius: 50%; cursor: pointer;"></div>
-                                        <div class="box m-2" style="width: 23px; height: 23px; background-color: black; border-radius: 50%; cursor: pointer;"></div>
-                                        <div class="box m-2" style="width: 23px; height: 23px; background-color: white; border-radius: 50%; cursor: pointer;"></div>
-                                    </div>
-                                </div>
-                                <div class="quantity" style="margin: 10px 0; width: 130px; margin-right: 10px; position: relative;">
-                                    <p style="margin: 0;">Số lượng:</p>
-                                    <div class="input-number-product mt-3">
-                                        <button style="left: 0px; right: auto;" class="subtraction">-</button>
-                                        <input type="text" value="1">
-                                        <button class="add">+</button>
-                                    </div>
-                                </div>
-                                <button class="add-cart mt-3">Thêm vào giỏ hàng</button>
-                                <div class="promotion">
-                                    <div class="promotion-head d-flex align-items-center">
-                                        <i class="fa-solid fa-gift"></i>
-                                        <h3>Khuyến mãi và ưu đãi</h3>
-                                    </div>
-                                    <ul class="promotion-box">
-                                        <li>Đồng giá Ship toàn quốc 30.000đ</li>
-                                        <li>Hỗ trợ 100.000 phí ship cho đơn hàng từ 1.000.000đ</li>
-                                        <li>Miễn phí ship đơn hàng từ 2.000.000đ</li>
-                                        <li>Đổi trả trong 30 ngày nếu sản phẩm lỗi bất kì</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+                        <div class="row mt-2" id="detail-product"></div>
                     </div>
                 </div>
             </div>
@@ -645,5 +459,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script th:inline="javascript" th:src="@{web/js/header.js}"></script>
     <script th:src="@{web/js/home.js}"></script>
+    <script th:src="@{web/js/product.js}"></script>
 </body>
 </html>

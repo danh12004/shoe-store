@@ -40,7 +40,7 @@
                         <div class="infomation d-flex align-items-center">
                             <p style="font-size: 14px; margin: 0;">Thương hiệu: <span style="color: var(--primary-color);" th:text="${product.categoryName}"></span></p>
                             <span style="padding: 0 20px;">|</span>
-                            <p style="font-size: 14px; margin: 0;">Mã sản phẩm: <span style="color: var(--primary-color);" th:text="${product.id}"></span></p>
+                            <p style="font-size: 14px; margin: 0;">Mã sản phẩm: <span style="color: var(--primary-color);" id="product-id" th:text="${product.id}"></span></p>
                         </div>
                         <p class="price mt-3" style="font-weight: bold; font-size: 20px;" th:text="${#numbers.formatDecimal(product.price, 0, 'COMMA', 2, 'POINT')} + ' VNĐ'"></p>
                         <div class="promotion mt-5">
@@ -70,12 +70,12 @@
                             <p style="margin: 0;">Số lượng:</p>
                             <div class="input-number-product mt-3">
                                 <button style="left: 0px; right: auto;" class="subtraction">-</button>
-                                <input type="text" value="1">
+                                <input type="text" class="quantity-product" value="1" style="outline: none;">
                                 <button class="add">+</button>
                             </div>
                         </div>
                         <div class="button d-flex">
-                            <button class="btn mt-3">Thêm vào giỏ hàng</button>
+                            <button class="btn mt-3 add-cart">Thêm vào giỏ hàng</button>
                             <button class="btn mt-3">Mua ngay</button>
                         </div>
                         <div class="contact mt-4">
@@ -104,16 +104,7 @@
                                 <p class="m-0">Mô tả sản phẩm</p>
                                 <i class="fa-solid fa-chevron-up"></i>
                             </div>
-                            <div class="body">
-                                <p>
-                                    Nike Zoom Pegasus 33, với chất liệu da cao cấp, kết hợp sự đẹp mắt và độ bền. 
-                                    Đôi giày này không chỉ làm nổi bật phong cách thể thao, mà còn mang đến sự thoải 
-                                    mái và linh hoạt cho mọi bước chạy. Chất liệu đẳng cấp của Pegasus 33 không chỉ 
-                                    làm tăng vẻ ngoại hình sang trọng, mà còn đảm bảo độ bền cho những chặng đường dài. 
-                                    Đôi giày này là sự kết hợp hoàn hảo giữa thời trang và hiệu suất, là người bạn đồng 
-                                    hành đáng tin cậy cho những người yêu thể thao.
-                                </p>
-                            </div>
+                            <div class="body" th:text="${product.description}"></div>
                         </div>
                         <div class="description d-flex flex-column">
                             <div class="head d-flex justify-content-between align-items-center">
@@ -155,8 +146,8 @@
                                             <a href="">
                                                 <div class="new-product-item">
                                                     <div class="product-img">
-                                                        <img th:src="@{/web/img/nike/nam/nike1.png}" alt="Product Image" class="original-image">
-                                                        <img th:src="@{/web/img/nike/nam/nike2.png}" alt="Product Image" class="new-image">
+                                                        <img th:src="@{/web/img/nike/male/nike1.png}" alt="Product Image" class="original-image">
+                                                        <img th:src="@{/web/img/nike/male/nike2.png}" alt="Product Image" class="new-image">
                                                         <p class="discount">20%</p>
                                                         <div class="icons">
                                                             <div class="icon">
@@ -182,8 +173,8 @@
                                             <a href="">
                                                 <div class="new-product-item">
                                                     <div class="product-img">
-                                                        <img th:src="@{/web/img/nike/nam/nike1.png}" alt="Product Image" class="original-image">
-                                                        <img th:src="@{/web/img/nike/nam/nike2.png}" alt="Product Image" class="new-image">
+                                                        <img th:src="@{/web/img/nike/male/nike1.png}" alt="Product Image" class="original-image">
+                                                        <img th:src="@{/web/img/nike/male/nike2.png}" alt="Product Image" class="new-image">
                                                         <p class="discount">20%</p>
                                                         <div class="icons">
                                                             <div class="icon">
@@ -209,8 +200,8 @@
                                             <a href="">
                                                 <div class="new-product-item">
                                                     <div class="product-img">
-                                                        <img th:src="@{/web/img/nike/nam/nike1.png}" alt="Product Image" class="original-image">
-                                                        <img th:src="@{/web/img/nike/nam/nike2.png}" alt="Product Image" class="new-image">
+                                                        <img th:src="@{/web/img/nike/male/nike1.png}" alt="Product Image" class="original-image">
+                                                        <img th:src="@{/web/img/nike/male/nike2.png}" alt="Product Image" class="new-image">
                                                         <p class="discount">20%</p>
                                                         <div class="icons">
                                                             <div class="icon">
@@ -236,8 +227,8 @@
                                             <a href="">
                                                 <div class="new-product-item">
                                                     <div class="product-img">
-                                                        <img th:src="@{/web/img/nike/nam/nike1.png}" alt="Product Image" class="original-image">
-                                                        <img th:src="@{/web/img/nike/nam/nike2.png}" alt="Product Image" class="new-image">
+                                                        <img th:src="@{/web/img/nike/male/nike1.png}" alt="Product Image" class="original-image">
+                                                        <img th:src="@{/web/img/nike/male/nike2.png}" alt="Product Image" class="new-image">
                                                         <p class="discount">20%</p>
                                                         <div class="icons">
                                                             <div class="icon">
@@ -273,29 +264,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            $('.list-img img').click(function () {
-                var currentImage = $(this).attr('src');
-
-                $('.col-6 > img').attr('src', currentImage);
-            });
-
-            $('#expand').on('show.bs.modal', function (event) {
-                var triggerElement = $(event.relatedTarget);
-
-                if (!triggerElement.hasClass('list-img') && !triggerElement.parent().hasClass('list-img')) {
-                    var currentImage = triggerElement.attr('src');
-
-                    $('.col-6 > img').attr('src', currentImage);
-                }
-            });
-
-            $('.description .head i').click(function () {
-                $(this).toggleClass('fa-chevron-down fa-chevron-up');
-                $(this).closest('.description').find('.body').slideToggle();
-            });
-        });
-    </script>
+    <script th:src="@{web/js/header.js}"></script>
+    <script th:src="@{web/js/productDetail.js}"></script>
 </body>
 </html>

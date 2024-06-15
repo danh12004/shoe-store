@@ -19,4 +19,5 @@ public interface IProductService {
     Page<ProductResponse> getProductByCategoryNamePaged(Pageable pageable, String categoryName);
     Page<ProductResponse> searchProduct(Pageable pageable, String keyword);
     List<ProductResponse> searchProduct(String query);
+    Page<ProductResponse> sortProductPrice(String sortDirection, Pageable pageable);
 }

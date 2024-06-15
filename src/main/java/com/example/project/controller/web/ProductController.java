@@ -33,6 +33,7 @@ public class ProductController {
                           @RequestParam(defaultValue = "9") Integer size,
                           @RequestParam(required = false) String brand,
                           @RequestParam(required = false) String keyword,
+                          @RequestParam(required = false) String sort,
                           Model model) {
         Page<ProductResponse> productResponsePage;
         Pageable pageable = PageRequest.of(page - 1, size);
@@ -41,6 +42,8 @@ public class ProductController {
             productResponsePage = productService.getProductByCategoryNamePaged(pageable, brand);
         } else if (keyword != null && !keyword.isEmpty()) {
             productResponsePage = productService.searchProduct(pageable, keyword);
+        } else if (sort != null && !sort.isEmpty()) {
+            productResponsePage = productService.sortProductPrice(sort, pageable);
         } else {
             productResponsePage = productService.getAllPaged(pageable);
         }

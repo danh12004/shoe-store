@@ -1,4 +1,15 @@
 $(document).ready(function () {
+    $('.dropdown-toggle-wrapper').click(function(event) {
+        event.stopPropagation();
+        $(this).closest('.nav-link').next('.dropdown-menu').toggleClass('show');
+    });
+
+    $(document).click(function(event) {
+        if (!$(event.target).closest('.dropdown-menu').length && !$(event.target).closest('.dropdown-toggle-wrapper').length) {
+            $('.dropdown-menu').removeClass('show');
+        }
+    });
+
     var addToCartAPI = '/api/cart/add';
     var getCartAPI = '/api/cart';
     var removeFromCartAPI = '/api/cart/remove';

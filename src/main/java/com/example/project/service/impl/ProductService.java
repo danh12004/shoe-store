@@ -13,6 +13,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -117,5 +118,16 @@ public class ProductService implements IProductService {
     public List<ProductResponse> searchProduct(String query) {
         List<Product> products = productRepository.findByProductNameContainingIgnoreCase(query);
         return products.stream().map(productMapper::toProductResponse).toList();
+    }
+
+    @Override
+    public Page<ProductResponse> sortProductPrice(String sortDirection, Pageable pageable) {
+        Page<Product> products;
+        if ("asc".equalsIgnoreCase(sortDirection)) {
+            products = productRepository.findAllByOrderByPriceAsc(pageable);
+        } else {
+            products = productRepository.findAllByOrderByPriceDesc(pageable);
+        }
+        return products.map(productMapper::toProductResponse);
     }
 }
